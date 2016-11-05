@@ -1,0 +1,97 @@
+﻿@model Application.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "RegisterForm",@class="form-horizontal" }))
+{
+    
+        <div class="portlet box">
+
+            @*<div class="portlet-title blue3border">
+                <div class="caption">
+                    <h4>Create a new account.</h4>
+                </div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+                </div>
+            </div>*@
+            @Html.AntiForgeryToken()
+            @*<h4>Create a new account.</h4>
+                <hr />*@
+            <div id="SuccessDiv" class="alert alert-success" style="display: none">
+                <button class="close" onclick="$('#SuccessDiv').hide()"></button>
+                <span id="SuccessText"></span>
+            </div>
+            <div id="ErrorDiv" class="alert alert-warning" style="display: none">
+                <button class="close" onclick="$('#ErrorDiv').hide()"></button>
+                <span id="ErrorText"></span>
+            </div>
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.MobileNumber, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.MobileNumber, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @*<button class="btn btn-default" type="submit" data-type="submit" id="saveRegister">Register</button>*@
+                <input type="button" value="Register" class="btn btn-default" id="AddAdmin" />
+            </div>
+        </div>
+
+        @*<div class="portlet box">
+                <div class="portlet-body"></div>
+                <div class="form-actions">
+                    <div class="pull-right">
+                        <button class="btn btn-default" type="submit" id="saveRegister" data-type="submit">Register</button>
+
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>*@
+       
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/Register")
+}
+<script>
+    //$(document).ready(function () {
+    //    $("button").on("click", function () {
+    //        Register();
+    //    });
+    //});
+
+    var urlForRegisterUser = '@Url.Action("Register", "Account")'
+</script>

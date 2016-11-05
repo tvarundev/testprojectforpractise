@@ -1,0 +1,4 @@
+F:\Business\OceanAgro\OceanAgro\OceanAgro\BusinessEntities\bin\Debug\BusinessEntities.dll
+F:\Business\OceanAgro\OceanAgro\OceanAgro\BusinessEntities\bin\Debug\BusinessEntities.pdb
+F:\Business\OceanAgro\OceanAgro\OceanAgro\BusinessEntities\obj\Debug\BusinessEntities.dll
+F:\Business\OceanAgro\OceanAgro\OceanAgro\BusinessEntities\obj\Debug\BusinessEntities.pdb

@@ -1,0 +1,28 @@
+﻿
+@using BusinessEntities.EntityClasses
+@using BusinessEntities.Enums
+@using Application.Common;
+@model BusinessEntities.EntityClasses.PocketFertilizerMappingEntities
+@{
+    bool isDisable = ViewBag.isInDisableMode;
+}
+<tr class="trFertilizerMapping">
+    <td>
+        <table>
+            <tr>
+                <td class="tdWidth">
+                    Fertilizer <span class="text-danger">*</span> :
+                </td>
+                <td class="hideForId">
+
+                    <input type="text" id="txtFertilizerMappingId" value="@Model.Id" />
+                </td>
+                <td class="tdWidth">
+                    @Html.DropDownListFor(model => model.FertilizerId, CommonOperations.BindDropdwon<FertilizerInfoEntities>(Model.Fertilizers, "Id", "Fertilizer"), ConfigSettings.DefaultDropDownText, isDisable == false ? new { @class = "form-control", @id = "ddlFertilizer" } : (object)new { @class = "form-control", @id = "ddlFertilizer", @disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.FertilizerId, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr class="rowSpacing"></tr>

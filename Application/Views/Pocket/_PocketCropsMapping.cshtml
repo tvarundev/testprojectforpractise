@@ -1,0 +1,27 @@
+﻿@using BusinessEntities.EntityClasses
+@using BusinessEntities.Enums
+@using Application.Common;
+@model BusinessEntities.EntityClasses.PocketCropMappingEntities
+@{
+    bool isDisable = ViewBag.isInDisableMode;
+}
+<tr class="trCropsMapping">
+    <td>
+        <table>
+            <tr>
+                <td class="tdWidth">
+                    Crop <span class="text-danger">*</span> :
+                </td>
+                <td class="hideForId">
+
+                    <input type="text" id="txtCropMappingId" value="@Model.id" />
+                </td>
+                <td class="tdWidth">
+                    @Html.DropDownListFor(model => model.CropId, CommonOperations.BindDropdwon<CropInfoEntities>(Model.Crops, "CropID", "CropName"), ConfigSettings.DefaultDropDownText, isDisable == false ? new { @class = "form-control", @id = "ddlCrops" } : (object)new { @class = "form-control", @id = "ddlCrops", @disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.CropId, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr class="rowSpacing"></tr>

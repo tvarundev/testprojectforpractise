@@ -1,0 +1,36 @@
+﻿
+@using BusinessEntities.EntityClasses
+@using BusinessEntities.Enums
+@using Application.Common;
+@model BusinessEntities.EntityClasses.PocketVillageMappingEntities
+@{
+    bool isDisable = ViewBag.isInDisableMode;
+}
+<tr class="trSubDistrictVillageMapping">
+    <td>
+        <table>
+            <tr>
+                <td class="tdWidth">
+                    Sub-District <span class="text-danger">*</span> :
+                </td>
+                <td class="hideForId">
+                   
+                    <input type="text" id="txtVillageMappingId" value="@Model.Id" />
+                </td>
+                <td class="tdWidth">
+                    @Html.DropDownListFor(model => model.SubDistrictId, CommonOperations.BindDropdwon<SubDistrictInfoEntities>(Model.subDistricts, "SubDistID", "SubDistrictName"), ConfigSettings.DefaultDropDownText, isDisable == false ? new { @class = "form-control", @id = "ddlSubDistrict" } : (object)new { @class = "form-control", @id = "ddlSubDistrict", @disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.SubDistrictId, "", new { @class = "text-danger" })
+                </td>
+                <td class="tdrowSpacingLarge"></td>
+                <td class="tdWidth">
+                    Village <span class="text-danger">*</span> :
+                </td>
+                <td class="tdWidth">
+                    @Html.DropDownListFor(model => model.VillageId, CommonOperations.BindDropdwon<VillageInfoEntities>(Model.villages, "VillageID", "VILLAGE"), ConfigSettings.DefaultDropDownText, isDisable == false ? new { @class = "form-control", @id = "ddlVillage" } : (object)new { @class = "form-control", @id = "ddlVillage", @disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.VillageId, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr class="rowSpacing"></tr>

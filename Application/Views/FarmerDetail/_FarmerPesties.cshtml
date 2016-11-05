@@ -1,0 +1,60 @@
+﻿@model BusinessEntities.EntityClasses.FarmerPesticesMappingEntities
+@using BusinessEntities.EntityClasses
+@using BusinessEntities.Enums
+@using Application.Common;
+@{
+    //List<SelectListItem> pestiesTypeList = CommonOperations.BindDropdwon<FarmerPesticideTypeEntities>(Model.pesticideTypeList, "Id", "PesticidesType");
+    //List<SelectListItem> pestiesUnitList = CommonOperations.BindDropdwon<PestiesUnitEntity>(Model.pestiesUnitList, "Id", "Unit");
+
+    List<SelectListItem> pestiesTypeList = CommonOperations.GetPesticideType();
+    List<SelectListItem> pestiesUnitList = CommonOperations.GetPesticideUnits();
+    
+    bool IsDisableMode = ViewBag.isInDisableMode;
+}
+<tr class="rowSpacing"></tr>
+<tr class="trPestiesMapping">
+    <td>
+        <table>
+            <tr>
+                <td class="hideForId">
+                    <input type="text" id="txtEduId" value="@Model.id" />
+                </td>
+                <td class="tdWidth">
+                    Pesticide Type <span class="text-danger">*</span> :
+                </td>
+                <td class="tdWidth">
+
+                    @Html.DropDownListFor(model => model.PesticesTyepId, pestiesTypeList, ConfigSettings.DefaultDropDownText, IsDisableMode == false ? new { @class = "form-control", @id = "ddlLandType" } : (object)new { @class = "form-control", @id = "ddlLandType", @disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.PesticesTyepId, "", new { @class = "text-danger" })
+                </td>
+                <td class="tdrowSpacing"></td>
+                <td class="tdWidth">
+                    Pesticide Name <span class="text-danger">*</span> :
+                </td>
+                <td class="tdWidth">
+                    @Html.TextBoxFor(model => model.PesticeName, IsDisableMode == false ? new { @class = "form-control" } : (object)new { @class = "form-control", @disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.PesticeName, "", new { @class = "text-danger" })
+                </td>
+
+            </tr>
+            <tr class="rowSpacing"></tr>
+            <tr>
+                <td class="tdWidth">
+                    Unit <span class="text-danger">*</span> :
+                </td>
+                <td class="tdWidth">
+                    @Html.DropDownListFor(model => model.UnitId, pestiesUnitList, ConfigSettings.DefaultDropDownText, IsDisableMode == false ? new { @class = "form-control", @id = "ddlOwnerShip" } : (object)new { @class = "form-control", @id = "ddlOwnerShip", @disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.UnitId, "", new { @class = "text-danger" })
+                </td>
+                <td class="tdrowSpacing"></td>
+                <td class="tdWidth">
+                    Quantity <span class="text-danger">*</span> :
+                </td>
+                <td class="tdWidth">
+                    @Html.TextBoxFor(model => model.Quantity, IsDisableMode == false ? new { @class = "form-control", @type = "number" } : (object)new { @class = "form-control", @type = "number", @disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>

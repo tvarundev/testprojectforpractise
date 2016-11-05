@@ -1,0 +1,37 @@
+﻿@model BusinessEntities.EntityClasses.FarmerConsumptionMappingEntities
+@using BusinessEntities.EntityClasses
+@using BusinessEntities.Enums
+@using Application.Common;
+@{
+    //List<SelectListItem> consumptionList = CommonOperations.BindDropdwon<FarmerConsumptionEntities>(Model.ConsumptionList, "Id", "Consumption");
+    List<SelectListItem> consumptionList = CommonOperations.GetFarmerConsumption();
+    bool IsDisableMode = ViewBag.isInDisableMode;
+}
+<tr class="rowSpacing"></tr>
+<tr class="trConsumptionMapping">
+    <td>
+        <table>
+            <tr>
+                <td class="hideForId">
+                    <input type="text" id="txtEduId" value="@Model.Id" />
+                </td>
+                <td class="tdWidth">
+                    Consumption
+                </td>
+                <td class="tdWidth">
+
+                    @Html.DropDownListFor(model => model.ConsumptionId, consumptionList, ConfigSettings.DefaultDropDownText, IsDisableMode == false ? new { @class = "form-control", @id = "ddlConsumption" } : (object)new { @class = "form-control", @id = "ddlConsumption", @disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.ConsumptionId, "", new { @class = "text-danger" })
+                </td>
+                <td class="tdrowSpacing"></td>
+                <td class="tdWidth">
+                    Quantity:
+                </td>
+                <td class="tdWidth">
+
+                    @Html.TextBoxFor(model => model.Quantity, IsDisableMode == false ? new { @class = "form-control", @type = "number" } : (object)new { @class = "form-control", @type = "number", @disabled = "disabled" })
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>

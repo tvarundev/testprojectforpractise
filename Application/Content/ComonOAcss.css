@@ -1,0 +1,172 @@
+﻿.mainTdWidth {
+    width: 1000px;
+    border-width: thin;
+    border-color: black;
+}
+
+.headerStyle {
+    height: 50px;
+}
+
+.tdWidth {
+    width: 150px;
+}
+
+.tdWidthForName {
+    width: 50px;
+}
+
+.rowSpacing {
+    height: 30px;
+}
+
+.tdrowSpacing {
+    width: 30px;
+}
+
+.tdrowSpacingLarge {
+    width: 105px;
+}
+
+
+.chkrowSpacing {
+    width: 60px;
+}
+
+.tdDropdwncontryCode {
+    width: 20px;
+}
+
+.ctrlDropdwncontryCode {
+    height: 23px;
+}
+
+.ctrltxtcontryCode {
+    width: 120px;
+}
+
+.ctrlDropdwnFarmerType {
+    height: 23px;
+    width: 170px;
+}
+
+.datPeakerWidth {
+    width: 150px !important;
+}
+
+.hideExperienceTr {
+    display: none;
+}
+
+.hideExperienceButtonTr {
+    display: none;
+}
+
+.hideEducationTr {
+    display: none;
+}
+
+.hideTargetTr {
+    display: none;
+}
+
+.hideTargetCropMappingTr {
+    display: none;
+}
+
+.firstHideTargetMappingTr {
+    display: none;
+}
+
+.firstHideTargetMappingTr {
+    display: none;
+}
+
+.hideTargetMppingInsertBefore {
+    display: none;
+}
+
+.hideTargetDetailInsertBefore {
+    display: none;
+}
+
+.targetMappingBeginRow {
+    display: none;
+}
+
+.targetMappingEndRow {
+    display: none;
+}
+
+.hideElementJquery {
+    display: none;
+}
+
+.hideForId {
+    display: none;
+}
+
+.divSubDistrictVillageMapping {
+    display: none;
+}
+
+.divPocketCropsMapping {
+    display: none;
+}
+
+.divPocketFertilizerMapping {
+    display: none;
+}
+
+.trInsertVillageMappingAfter {
+    display: none;
+}
+
+.trBtnVillageMapping {
+    display: none;
+}
+
+.trBtnCropsMapping {
+    display: none;
+}
+
+.trBtnFertilizerMapping {
+    display: none;
+}
+
+.divHideConsumptionTr {
+    display: none;
+}
+
+.hidePestiesDetailInsertBefore {
+    display: none;
+}
+.hideLandDetailInsertBefore {
+    display: none;
+}
+.divHidePestiesTr {
+    display: none;
+}
+.divHideLandTr {
+    display: none;
+}
+.divHideCropTr {
+    display: none;
+}
+.hideCropDetailInsertBefore {
+    display: none;
+}
+.divHideIsourceTr {
+    display: none;
+}
+.hideInputSourceDetailInsertBefore {
+    display: none;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,344 @@
+﻿@model Application.Models.FarmerDetailModel
+@using BusinessEntities.EntityClasses
+@using BusinessEntities.Enums
+@using Application.Common;
+@{
+    ViewBag.Title = "Farmer Registration";
+    ViewBag.isInDisableMode = Model.isInDetailMode;
+}
+
+@Styles.Render("~/Content/ComonOAcss")
+<h2 class="headerStyle">Farmer Registration</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "farmerDetailForm" }))
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <table border="0" id="farmerDetailAddTbl">
+        <tr>
+            <td class="mainTdWidth">
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Registration Date <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+
+                            @Html.TextBoxFor(model => model.farmerDetail.RegistrationDate, "{0:yyyy-MM-dd}", Model.isInDetailMode == false ? new { @class = "form-control datepicker", @placeholder = "Select Date", @type = "date" } : (object)new { @class = "form-control datepicker", @placeholder = "Select Date", @type = "date", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.farmerDetail.RegistrationDate, "", new { @class = "text-danger" })
+                        </td>
+                        @if (Model.Action == ActionTypeEnum.Update)
+                        {
+                            <td class="hideForId">
+                                @Html.TextBoxFor(model => model.farmerDetail.Id)
+                            </td>
+                        }
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Dealer Name <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.DropDownListFor(model => model.farmerDetail.DealerId, Model.DealerList, "select", Model.isInDetailMode == false ? new { @class = "form-control", @id = "ddlDealers" } : (object)new { @class = "form-control", @id = "ddlDealers", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.farmerDetail.DealerId, "", new { @class = "text-danger" })
+                        </td>
+                        <td class="tdrowSpacing"></td>
+                        <td class="tdWidth">
+                            Farmer Type <span class="text-danger">*</span>:
+                        </td>
+                        <td class="tdWidth">
+                            @Html.DropDownListFor(model => model.farmerDetail.FarmerTypeId, Model.farmerTypes, "select", Model.isInDetailMode == false ? new { @class = "form-control", @id = "ddlFarmerType" } : (object)new { @class = "form-control", @id = "ddlDealers", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.farmerDetail.FarmerTypeId, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Name <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+
+                            @Html.TextBoxFor(model => model.farmerDetail.FarmerLastName, Model.isInDetailMode == false ? new { @class = "form-control", @placeholder = "Surname" } : (object)new { @class = "form-control", @placeholder = "Surname", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.farmerDetail.FarmerLastName, "", new { @class = "text-danger" })
+                        </td>
+                        <td class="tdrowSpacing"></td>
+                        <td class="tdWidth">
+
+                            @Html.TextBoxFor(model => model.farmerDetail.FarmerFirstName, Model.isInDetailMode == false ? new { @class = "form-control", @placeholder = "Name" } : (object)new { @class = "form-control", @placeholder = "Name", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.farmerDetail.FarmerFirstName, "", new { @class = "text-danger" })
+                        </td>
+                        <td class="tdrowSpacing"></td>
+                        <td class="tdWidth">
+
+                            @Html.TextBoxFor(model => model.farmerDetail.FarmerMiddleName, Model.isInDetailMode == false ? new { @class = "form-control", @placeholder = "Father Name" } : (object)new { @class = "form-control", @placeholder = "Father Name", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.farmerDetail.FarmerMiddleName, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Pocket Number <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.DropDownListFor(model => model.farmerDetail.PocketId, Model.pocketList, "select", Model.isInDetailMode == false ? new { @class = "form-control", @id = "ddlPocket" } : (object)new { @class = "form-control", @id = "ddlPocket", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.farmerDetail.PocketId, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Address <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.TextAreaFor(model => model.farmerDetail.FarmerAddress, 4, 50, Model.isInDetailMode == false ? new { @class = "form-control" } : (object)new { @class = "form-control", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.farmerDetail.FarmerAddress, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Mobile Number <span class="text-danger">*</span> :
+                        </td>
+
+                        <td class="tdWidth">
+                            @Html.TextBoxFor(model => model.farmerDetail.MobileNumber, Model.isInDetailMode == false ? new { @class = "form-control", placeholder = "10 digit number", @type = "number" } : (object)new { @class = "form-control", placeholder = "10 digit number", @type = "number", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.farmerDetail.MobileNumber, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        @foreach (var consumption in Model.farmerDetail.farmerConsumptionMappingList)
+        {
+            @Html.Partial("~/Views/FarmerDetail/_FarmerConsumption.cshtml", consumption)
+        }
+        <tr class="hideConsumptionDetailInsertBefore"></tr>
+        @if (!Model.isInDetailMode)
+        {
+            <tr class="rowSpacing"></tr>
+            <tr>
+                <td>
+                    <input type="button" id="btnAddConsumption" value="Add Consumption" />
+                    <input type="button" id="btnRemoveConsumption" value="Remove Consumption" />
+                </td>
+            </tr>
+        }
+
+
+        @foreach (var land in Model.farmerDetail.farmerLandMappingList)
+        {
+            @Html.Partial("~/Views/FarmerDetail/_FarmerLand.cshtml", land)
+        }
+        <tr class="hideLandDetailInsertBefore"></tr>
+        @if (!Model.isInDetailMode)
+        {
+            <tr class="rowSpacing"></tr>
+            <tr>
+                <td>
+                    <input type="button" id="btnAddLand" value="Add Land" />
+                    <input type="button" id="btnRemoveLand" value="Remove Land" />
+                </td>
+            </tr>
+        }
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Source <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.DropDownListFor(model => model.farmerDetail.SourceId, Model.irrigationSourceList, "select", Model.isInDetailMode == false ? new { @class = "form-control", @id = "ddlIrgSourceId" } : (object)new { @class = "form-control", @id = "ddlIrgSourceId", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.farmerDetail.SourceId, "", new { @class = "text-danger" })
+                        </td>
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr class="rowSpacing"></tr>
+        @foreach (var crop in Model.farmerDetail.farmerCropMappingList)
+        {
+            @Html.Partial("~/Views/FarmerDetail/_FarmerCrop.cshtml", crop)
+        }
+        <tr class="hideCropDetailInsertBefore"></tr>
+        @if (!Model.isInDetailMode)
+        {
+            <tr class="rowSpacing"></tr>
+            <tr>
+                <td>
+                    <input type="button" id="btnAddCrop" value="Add Crop" />
+                    <input type="button" id="btnRemoveCrop" value="Remove Crop" />
+                </td>
+            </tr>
+        }
+
+        @foreach (var pesties in Model.farmerDetail.farmerPestiesMappingList)
+        {
+            @Html.Partial("~/Views/FarmerDetail/_FarmerPesties.cshtml", pesties)
+        }
+        <tr class="hidePestiesDetailInsertBefore"></tr>
+        @if (!Model.isInDetailMode)
+        {
+            <tr class="rowSpacing"></tr>
+            <tr>
+                <td>
+                    <input type="button" id="btnAddPesticides" value="Add Pesticides" />
+                    <input type="button" id="btnRemovePesticides" value="Remove Pesticides" />
+                </td>
+            </tr>
+        }
+
+
+
+        <tr class="rowSpacing"></tr>
+        @foreach (var source in Model.farmerDetail.inputSoruceList)
+        {
+            @Html.Partial("~/Views/FarmerDetail/_FarmerInputSource.cshtml", source)
+        }
+        <tr class="hideInputSourceDetailInsertBefore"></tr>
+        @if (!Model.isInDetailMode)
+        {
+            <tr class="rowSpacing"></tr>
+            <tr>
+                <td>
+                    <input type="button" id="btnAddSource" value="Add Source" />
+                    <input type="button" id="btnRemoveSource" value="Remove Source" />
+                </td>
+            </tr>
+        }
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Sample / Demo Details:
+                        </td>
+                        <td class="tdWidth">
+
+                            @Html.TextAreaFor(model => model.farmerDetail.SampleDemoDetails, 4, 50, Model.isInDetailMode == false ? new { @class = "form-control" } : (object)new { @class = "form-control", @disabled = "disabled" })
+                        </td>
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        @if (Model.Action == ActionTypeEnum.Insert || Model.Action == ActionTypeEnum.Update)
+        {
+            <tr class="rowSpacing"></tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td class="tdWidth">
+                                <input type="button" value="Save Data" id="btnAdd" />
+                            </td>
+                            <td class="tdWidth">
+                                <input type="button" value="Cancel" id="btnCancelAdd" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        }
+        @if (Model.Action == ActionTypeEnum.Select)
+        {
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td class="tdWidth"></td>
+                            <td class="tdWidth"></td>
+                            <td class="tdrowSpacingLarge"></td>
+                            <td class="tdWidth">
+                                <input type="button" value="Back" id="btnBack" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        }
+    </table>
+}
+<div class="divHideConsumptionTr">
+    <table id="tempConsumptionTbl">
+        <tr class="tempConsumptionTr">
+            @Html.Partial("~/Views/FarmerDetail/_FarmerConsumption.cshtml", new FarmerConsumptionMappingEntities())
+        </tr>
+    </table>
+</div>
+<div class="divHidePestiesTr">
+    <table id="tempPestiesTbl">
+        <tr class="tempPestiesTr">
+            @Html.Partial("~/Views/FarmerDetail/_FarmerPesties.cshtml", new FarmerPesticesMappingEntities())
+        </tr>
+    </table>
+</div>
+<div class="divHideLandTr">
+    <table id="tempLandTbl">
+        <tr class="tempLandTr">
+            @Html.Partial("~/Views/FarmerDetail/_FarmerLand.cshtml", new FarmerLandMappingEntities())
+        </tr>
+    </table>
+</div>
+<div class="divHideCropTr">
+    <table id="tempCropTbl">
+        <tr class="tempCropTr">
+            @Html.Partial("~/Views/FarmerDetail/_FarmerCrop.cshtml", new FarmerCropMappingEntities())
+        </tr>
+    </table>
+</div>
+<div class="divHideIsourceTr">
+    <table id="tempIsourceTbl">
+        <tr class="tempCropTr">
+            @Html.Partial("~/Views/FarmerDetail/_FarmerInputSource.cshtml", new FarmerInputSourceMappingEntities())
+        </tr>
+    </table>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/JqueryPackage")
+    @Scripts.Render("~/bundles/Validation")
+    @Scripts.Render("~/bundles/FarmerDetail")
+}
+<script type="text/javascript">
+    var urlForPostingNewFaData = '@Url.Action("AddNewFarmerDetail", "FarmerDetail")'
+    var urlForPostingUpdatedData = '@Url.Action("UpdateExistingFarmerDetail", "FarmerDetail")'
+    var actionType = '@Convert.ToString(Model.Action)'
+    var urlForRedirectingDetailPage = '@Url.Action("FarmerDetail", "FarmerDetail")';
+    var urlForPageInitialValue = '@Url.Action("GetPageUIvaluesForPocket", "FarmerDetail")';
+    var defaultDropdownText = '@ConfigSettings.DefaultDropDownText';
+</script>

@@ -1,0 +1,67 @@
+﻿@using Application.Common
+@using System.Web.Mvc
+@model BusinessEntities.EntityClasses.FAeducationDetailEntities
+@{
+    List<SelectListItem> YearList = CommonOperations.GetDropdownValueForExperienceYears();
+    bool IsDisableMode = ViewBag.isInDisableMode;
+}
+<h4><b>Education Detail:</b></h4>
+<br />
+<table>
+    <tr>
+        <td class="hideForId">
+            <input type="text" id="txtEduId" value="@Model.Id" />
+        </td>
+        <td class="tdWidth">
+            Examination Passed <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth">
+            @Html.TextBoxFor(model => model.Examination, IsDisableMode == false ? new { @class = "form-control", @placeholder = "Exam Passed" } : (object)new { @class = "form-control", @placeholder = "Exam Passed", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.Examination, "", new { @class = "text-danger" })
+        </td>
+        <td class="tdrowSpacingLarge"></td>
+        <td class="tdWidth">
+            Board/University <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth">
+            @Html.TextBoxFor(model => model.University, IsDisableMode == false ? new { @class = "form-control", @placeholder = "Board/University" } : (object)new { @class = "form-control", @placeholder = "Board/University", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.University, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr class="rowSpacing"></tr>
+    <tr>
+        <td class="tdWidth">
+            Passed Year <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth">
+            @Html.DropDownListFor(model => model.Year, YearList, ConfigSettings.DefaultDropDownText, IsDisableMode == false ? new { @class = "form-control", @id = "ddlPassedYear" } : (object)new { @class = "form-control", @id = "ddlPassedYear", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+        </td>
+        <td class="tdrowSpacingLarge"></td>
+        <td class="tdWidth">
+            Percentage(%) <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth">
+            @Html.TextBoxFor(model => model.Percentage, IsDisableMode == false ? new { @class = "form-control", @placeholder = "Percentage", @type = "number" } : (object)new { @class = "form-control", @placeholder = "Percentage", @type = "number", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.Percentage, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr class="rowSpacing"></tr>
+    <tr>
+        <td class="tdWidth" style="display:none;">
+            Grade <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth" style="display:none;">
+            @Html.TextBoxFor(model => model.Grade, IsDisableMode == false ? new { @class = "form-control", @placeholder = "Grade" } : (object)new { @class = "form-control", @placeholder = "Grade", @disabled = "disabled" })
+            @*@Html.ValidationMessageFor(model => model.Grade, "", new { @class = "text-danger" })*@
+        </td>
+        <td class="tdrowSpacingLarge" style="display:none;"></td>
+        <td class="tdWidth">
+            Subjects <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth">
+            @Html.TextBoxFor(model => model.Subjects, IsDisableMode == false ? new { @class = "form-control", @placeholder = "Subjects" } : (object)new { @class = "form-control", @placeholder = "Subjects", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.Subjects, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+</table>

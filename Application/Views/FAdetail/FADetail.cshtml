@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BusinessEntities.EntityClasses.FAdetailEntities>
+
+@{
+    ViewBag.Title = "FADetail";
+}
+
+<h2>FADetail</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddFA")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            Form Number
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Enroll Date
+        </th>
+        <th>
+            Status
+        </th>
+        
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GetName)
+            </td>
+            <td>
+                @Html.DisplayFor( modelItem => item.EnrollDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusName)
+            </td>
+
+            
+            <td>
+                @*@Html.ActionLink("Details", "SelectedFA", new { id = item.Id }) |
+                @Html.ActionLink("Edit", "UpdateFAdetail", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteFAdetail", item.Status.Value != 3 ? new { id = item.Id } : (object)new { id = item.Id, @disabled = "disabled" })*@
+
+                @Html.ActionLink("Details", "SelectedFA", new { id = item.Id }) |
+                @Html.ActionLink("Edit", "UpdateFAdetail", new { id = item.Id }) |
+                @if (item.Status!=3)
+                {
+                    @Html.ActionLink("Delete", "DeleteFAdetail", new { id = item.Id })
+                }
+                else
+                {
+                    
+                    @Html.Label("Disabled", new { @style = "background: #dddddd;" })
+                }
+                
+
+               
+            </td>
+        </tr>
+    }
+
+</table>

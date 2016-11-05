@@ -1,0 +1,191 @@
+﻿
+@{
+    ViewBag.Title = "StationaryManagement";
+}
+
+<h2 class="headerStyle">Stationary Management</h2>
+
+<style>
+    .mainTdWidth {
+        width: 1000px;
+        border-width: thin;
+        border-color: black;
+    }
+    .headerStyle
+    {
+        height:50px;
+    }
+    .tdWidth {
+        width: 150px;
+    }
+
+    .tdWidthForName {
+        width: 50px;
+    }
+
+    .rowSpacing {
+        height: 30px;
+    }
+
+    .tdrowSpacing {
+        width: 30px;
+    }
+
+    .chkrowSpacing {
+        width: 60px;
+    }
+
+    .tdDropdwncontryCode {
+        width: 20px;
+    }
+
+    .ctrlDropdwncontryCode {
+        height: 23px;
+    }
+
+    .ctrltxtcontryCode {
+        width: 120px;
+    }
+
+    .ctrlDropdwnFarmerType {
+        height: 23px;
+        width: 170px;
+    }
+</style>
+
+<form>
+
+    <table border="0">
+        <tr>
+            <td class="mainTdWidth">
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Book Type:
+                        </td>
+                        <td class="tdWidth">
+                            <select class="ctrlDropdwnFarmerType" id="ddlBookType">
+                                <option value="BookType1">Book Type1</option>
+                                <option value="BookType2">Book Type1</option>
+                                <option value="BookType3">Book Type3</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Book Name:
+                        </td>
+                        <td class="tdWidth">
+                            <input type="text" id="txtBookName" />
+                        </td>
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Book Number:
+                        </td>
+                        <td class="tdWidth">
+                            <input type="number" id="txtBookNumber" />
+                        </td>
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Number Of Pages:
+                        </td>
+                        <td class="tdWidth">
+                            <input type="number" id="txtBookNumber" />
+                        </td>
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Booklet Quentity:
+                        </td>
+                        <td class="tdWidth">
+                            <input type="number" id="txtBookletQuentity" />
+                        </td>
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Booklet From:
+                        </td>
+                        <td class="tdWidth">
+                            <input type="number" id="txtBookletFrom" />
+                        </td>
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Booklet To:
+                        </td>
+                        <td class="tdWidth">
+                            <input type="number" id="txtBookletTo" />
+                        </td>
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            <input type="submit" value="Add" />
+                        </td>
+
+                        <td class="tdWidth">
+                            <input type="submit" value="Cancel" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</form>
+

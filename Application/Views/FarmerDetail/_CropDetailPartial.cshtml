@@ -1,0 +1,19 @@
+﻿@using BusinessEntities.EntityClasses;
+@model IEnumerable<System.Web.Mvc.SelectListItem>
+
+@*<select class="ctrlDropdwnFarmerType" id="ddlFarmerType">
+    <option value="-1" selected="selected">Select</option>
+    @{
+        foreach (DropDownTextValueEntities dropdownItem in Model)
+        {
+            <option value='@dropdownItem.value'>@dropdownItem.text</option>
+        }
+    }
+</select>*@
+@Html.DropDownList("ddlPreviousYearCrop", @Model, new { @class = "form-control" , @id="ddlPreviousYearCrop"})
+<span id="ddlPreviousYearCropErrorMsg" class="text-danger"></span>
+<br />
+<br />
+@Html.Editor("txtprivouseCropAcre", new { htmlAttributes = new { @class = "form-control", placeholder = "Acre" , @id="txtprivouseCropAcre"} })
+<span id="txtprivouseCropAcreErrorMsg" class="text-danger"></span>
+

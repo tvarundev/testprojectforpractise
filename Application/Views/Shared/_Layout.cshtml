@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/BootstrapPackage")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .menuLinkCustomStyle{
+            color:yellow !important;
+            background-color:black;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Ocean Argo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            @*<div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>*@
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav nav-pills">
+                    <li>@Html.ActionLink("Admin User", "Register", "Account", new {@class="menuLinkCustomStyle"})</li>
+                    <li>@Html.ActionLink("About", "About", "Home", new { @class = "menuLinkCustomStyle" })</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { @class = "menuLinkCustomStyle" })</li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle menuLinkCustomStyle" data-toggle="dropdown" href="#">
+                            Test <span class="caret "></span>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                            @*<li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>*@
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle menuLinkCustomStyle" data-toggle="dropdown" href="#">
+                            Operations <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("FA Operations", "FAdetail", "FAdetail")</li>
+                            <li>@Html.ActionLink("Farmer Operations", "FarmerDetail", "FarmerDetail")</li>
+                            <li>@Html.ActionLink("Pockets", "PocketDetail", "Pocket")</li>
+
+                            @*<li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>*@
+                        </ul>
+                    </li>
+                    @Html.Partial("_LoginPartial")
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Ocean Agro</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

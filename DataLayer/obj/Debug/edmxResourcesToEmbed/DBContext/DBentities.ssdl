@@ -1,0 +1,2557 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CropInfo">
+    <Key>
+      <PropertyRef Name="CropID" />
+    </Key>
+    <Property Name="CropID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CropName" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CropResultInfo">
+    <Key>
+      <PropertyRef Name="CropResultID" />
+    </Key>
+    <Property Name="CropResultID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CropID" Type="int" Nullable="false" />
+    <Property Name="Result" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DealerDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dealerName" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DelerAddInfo">
+    <Key>
+      <PropertyRef Name="DelerAddID" />
+    </Key>
+    <Property Name="DelerAddID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DelerID" Type="int" Nullable="false" />
+    <Property Name="ShopAddress" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="ShopPost" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="ShopPincode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ShopTaluka" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ShopDistrictID" Type="int" Nullable="false" />
+    <Property Name="ShopStateID" Type="int" Nullable="false" />
+    <Property Name="ShopTelNo" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ShopWkgHrs" Type="int" Nullable="false" />
+    <Property Name="GodownAddress" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="GodownPost" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="GodownPincode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="GodownTaluka" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="GodownDistrictID" Type="int" Nullable="false" />
+    <Property Name="GodownStateID" Type="int" Nullable="false" />
+    <Property Name="GodownTelNo" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="GodownWkgHrs" Type="int" Nullable="false" />
+    <Property Name="ResidanceAddress" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="ResidancePost" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="ResidancePincode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ResidanceTaluka" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ResidanceDistrictID" Type="int" Nullable="false" />
+    <Property Name="ResidanceStateID" Type="int" Nullable="false" />
+    <Property Name="ResidanceTelNo" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ResidanceWkgHrs" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DelerBankInfo">
+    <Key>
+      <PropertyRef Name="DelerBankInfoID" />
+    </Key>
+    <Property Name="DelerBankInfoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DelerID" Type="int" Nullable="false" />
+    <Property Name="Bank1Name" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Bank1ACNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Bank1FullAddress" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Bank1PhnNo" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Bank2Name" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Bank2ACNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Bank2FullAddress" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Bank2PhnNo" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="TransporterName" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="TransporterACNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TransporterFullAddress" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="TransporterPhnNo" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DelerInfo">
+    <Key>
+      <PropertyRef Name="DelerID" />
+    </Key>
+    <Property Name="DelerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExistingCodeNo" Type="int" Nullable="false" />
+    <Property Name="FormNo" Type="int" Nullable="false" />
+    <Property Name="PreparedBy" Type="int" Nullable="false" />
+    <Property Name="ApprovedBy" Type="int" Nullable="false" />
+    <Property Name="CodeNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EstablishmentName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DelerTypeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DelerLicencesInfo">
+    <Key>
+      <PropertyRef Name="DelerLicencesInfoID" />
+    </Key>
+    <Property Name="DelerLicencesInfoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DelerID" Type="int" Nullable="false" />
+    <Property Name="InsecticideLicenceNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="InLicenceDateOfIssue" Type="datetime" Nullable="false" />
+    <Property Name="InLicencePlaceOfIssue" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="InLicenceIssuedBy" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="InLicenceValidupto" Type="datetime" Nullable="false" />
+    <Property Name="FertilizerLicenceNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FrLicenceDateOfIssue" Type="datetime" Nullable="false" />
+    <Property Name="FrLicencePlaceOfIssue" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FrLicenceIssuedBy" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FrLicenceValidupto" Type="datetime" Nullable="false" />
+    <Property Name="CentralSalesTaxNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CSTLicenceDateOfIssue" Type="datetime" Nullable="false" />
+    <Property Name="CSTLicencePlaceOfIssue" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CSTLicenceIssuedBy" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CSTLicenceValidupto" Type="datetime" Nullable="false" />
+    <Property Name="StateSalesTaxNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SSTLicenceDateOfIssue" Type="datetime" Nullable="false" />
+    <Property Name="SSTLicencePlaceOfIssue" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SSTLicenceIssuedBy" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SSTLicenceValidupto" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DelerPartenarInfo">
+    <Key>
+      <PropertyRef Name="DelerParternarID" />
+    </Key>
+    <Property Name="DelerParternarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DelerID" Type="int" Nullable="false" />
+    <Property Name="PartenarSurname1" Type="varchar" MaxLength="50" />
+    <Property Name="PartenarFirstName1" Type="varchar" MaxLength="50" />
+    <Property Name="PartenarMidName1" Type="varchar" MaxLength="50" />
+    <Property Name="PartenarDesignation1" Type="varchar" MaxLength="100" />
+    <Property Name="PartenarAddress1" Type="varchar" MaxLength="500" />
+    <Property Name="PartenarSurname2" Type="varchar" MaxLength="50" />
+    <Property Name="PartenarFirstName2" Type="varchar" MaxLength="50" />
+    <Property Name="PartenarMidName2" Type="varchar" MaxLength="50" />
+    <Property Name="PartenarDesignation2" Type="varchar" MaxLength="100" />
+    <Property Name="PartenarAddres2" Type="varchar" MaxLength="500" />
+    <Property Name="PartenarSurname3" Type="varchar" MaxLength="50" />
+    <Property Name="PartenarFirstName3" Type="varchar" MaxLength="50" />
+    <Property Name="PartenarMidName3" Type="varchar" MaxLength="50" />
+    <Property Name="PartenarDesignation3" Type="varchar" MaxLength="100" />
+    <Property Name="PartenarAddres3" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="DelerType">
+    <Key>
+      <PropertyRef Name="DelerTypeID" />
+    </Key>
+    <Property Name="DelerTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DelerTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DistrictInfo">
+    <Key>
+      <PropertyRef Name="DistID" />
+    </Key>
+    <Property Name="DistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateID" Type="int" Nullable="false" />
+    <Property Name="DistrictCode" Type="varchar" MaxLength="50" />
+    <Property Name="DistrictName" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="FAaddressDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FAdetailId" Type="int" />
+    <Property Name="Address" Type="varchar" MaxLength="500" />
+    <Property Name="Pincode" Type="varchar" MaxLength="10" />
+    <Property Name="StateId" Type="int" />
+    <Property Name="District" Type="int" />
+    <Property Name="PocketId" Type="int" />
+    <Property Name="SubDistrictId" Type="int" />
+    <Property Name="Village" Type="int" />
+    <Property Name="ContactNo" Type="varchar" MaxLength="15" />
+    <Property Name="MobileNo" Type="varchar" MaxLength="15" />
+    <Property Name="EmailId" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FAapprovals">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FAid" Type="int" />
+    <Property Name="FAApprovedId" Type="int" />
+    <Property Name="PocketId" Type="int" />
+    <Property Name="RecommandedBYSM" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="FAapprovedBy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApprovedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FAdesignation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Designation" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FAdetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FormNo" Type="varchar" MaxLength="10" />
+    <Property Name="EnrollDate" Type="datetime" />
+    <Property Name="BirthDate" Type="date" />
+    <Property Name="FirstName" Type="varchar" MaxLength="15" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="15" />
+    <Property Name="LastName" Type="varchar" MaxLength="15" />
+    <Property Name="FAname" Type="varchar" MaxLength="50" />
+    <Property Name="FAdesignationId" Type="int" />
+    <Property Name="IsExperienced" Type="bit" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastUpdated" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="FAdocumentType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocumentType" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="FAeducationDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FAid" Type="int" />
+    <Property Name="Examination" Type="varchar" MaxLength="100" />
+    <Property Name="University" Type="varchar" MaxLength="100" />
+    <Property Name="Year" Type="int" />
+    <Property Name="Percentage" Type="int" />
+    <Property Name="Grade" Type="varchar" MaxLength="5" />
+    <Property Name="Subjects" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="FAexperianceDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FAid" Type="int" />
+    <Property Name="OrganitionName" Type="varchar" MaxLength="50" />
+    <Property Name="FromMonth" Type="int" />
+    <Property Name="FromYear" Type="int" />
+    <Property Name="ToMonth" Type="int" />
+    <Property Name="ToYear" Type="int" />
+    <Property Name="Designation" Type="varchar" MaxLength="50" />
+    <Property Name="PaymentAgencyId" Type="int" />
+    <Property Name="SalaryPerMonth" Type="int" />
+    <Property Name="SalaryPerDay" Type="int" />
+    <Property Name="DA" Type="int" />
+    <Property Name="TA" Type="int" />
+    <Property Name="Travel" Type="int" />
+    <Property Name="MobileAllowance" Type="int" />
+    <Property Name="IsExperience" Type="bit" />
+    <Property Name="RecomandDealerInfo" Type="varchar" MaxLength="500" />
+    <Property Name="WorkArea" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="FApaymentAgency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentAgency" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FarmerConsumption">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Consumption" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FarmerConsumptionMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FarmerId" Type="int" />
+    <Property Name="ConsumptionId" Type="int" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="FarmerCropsMapping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="farmerId" Type="int" />
+    <Property Name="cropId" Type="int" />
+    <Property Name="acre" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="cropYear" Type="int" />
+    <Property Name="isActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="FarmerDealerMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FarmerId" Type="int" />
+    <Property Name="DealerId" Type="int" />
+  </EntityType>
+  <EntityType Name="FarmerDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RegistrationNumber" Type="varchar" MaxLength="15" />
+    <Property Name="RegistrationDate" Type="datetime" />
+    <Property Name="DealerId" Type="int" />
+    <Property Name="FarmerTypeId" Type="int" Nullable="false" />
+    <Property Name="FarmerFirstName" Type="varchar" MaxLength="20" />
+    <Property Name="FarmerMiddleName" Type="varchar" MaxLength="20" />
+    <Property Name="FarmerLastName" Type="varchar" MaxLength="20" />
+    <Property Name="PocketId" Type="int" Nullable="false" />
+    <Property Name="FarmerAddress" Type="varchar(max)" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="15" />
+    <Property Name="FertiCons" Type="varchar" MaxLength="500" />
+    <Property Name="DAP" Type="varchar" MaxLength="500" />
+    <Property Name="Urea" Type="varchar" MaxLength="500" />
+    <Property Name="Potash" Type="varchar" MaxLength="500" />
+    <Property Name="LandTotal" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="IrrigatedFields" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="SourceId" Type="int" Nullable="false" />
+    <Property Name="DryLandFields" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="FarmerDealerPesticides" Type="varchar" MaxLength="500" />
+    <Property Name="FarmerDealerFertilizer" Type="varchar" MaxLength="500" />
+    <Property Name="FarmerDealerSeeds" Type="varchar" MaxLength="500" />
+    <Property Name="SampleDemoDetails" Type="varchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastUpdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FarmerInputSourceMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FarmerId" Type="int" />
+    <Property Name="InputSourceId" Type="int" />
+    <Property Name="DealerId" Type="int" />
+    <Property Name="VillageId" Type="int" />
+  </EntityType>
+  <EntityType Name="FarmerLandMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FarmerId" Type="int" />
+    <Property Name="LandTypeId" Type="int" />
+    <Property Name="OwnershipTypeId" Type="int" />
+    <Property Name="Acre" Type="int" />
+  </EntityType>
+  <EntityType Name="FarmerLandType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LandType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FarmerPesticesMapping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="farmerId" Type="int" />
+    <Property Name="PesticesTyepId" Type="int" />
+    <Property Name="UnitId" Type="int" />
+    <Property Name="PesticeName" Type="varchar" MaxLength="50" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="isActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="FarmerPesticideType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PesticidesType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FarmerTypeDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="farmerType" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FAStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FAstatus" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FAtargetDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FAid" Type="int" />
+    <Property Name="DealerId" Type="int" />
+    <Property Name="VillageId" Type="int" />
+  </EntityType>
+  <EntityType Name="FAtargetVillageMappings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TargetId" Type="int" />
+    <Property Name="CropId" Type="int" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="TotalMonths" Type="int" />
+    <Property Name="NoOfSamples" Type="int" />
+    <Property Name="NoOfDemos" Type="int" />
+    <Property Name="NoOfFarmerMeetings" Type="int" />
+    <Property Name="NoOfPrescriptions" Type="int" />
+  </EntityType>
+  <EntityType Name="FAuploadedDocumentDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FAid" Type="int" Nullable="false" />
+    <Property Name="DocumentId" Type="int" Nullable="false" />
+    <Property Name="UploadPath" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FertilizerInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fertilizer" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="GroupInfo">
+    <Key>
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Name="GroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GropName" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InputSources">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InputSourceName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="IrrigationSources">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SourceName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LandOwnershipType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OwnershipType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PesticesInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Pestices" Type="varchar" MaxLength="500" />
+    <Property Name="PesticideTypeId" Type="int" />
+  </EntityType>
+  <EntityType Name="Pesticides">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PesticideName" Type="varchar" MaxLength="50" />
+    <Property Name="PesticideTypeId" Type="int" />
+  </EntityType>
+  <EntityType Name="PestiesUnit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Unit" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PocketCropMapping">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PocketId" Type="int" />
+    <Property Name="CropId" Type="int" />
+  </EntityType>
+  <EntityType Name="PocketFertilizerMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PocketId" Type="int" />
+    <Property Name="FertilizerId" Type="int" />
+  </EntityType>
+  <EntityType Name="PocketInfo">
+    <Key>
+      <PropertyRef Name="PocketID" />
+    </Key>
+    <Property Name="PocketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PocketName" Type="varchar" MaxLength="100" />
+    <Property Name="PocaketPotentiallity" Type="varchar" MaxLength="10" />
+    <Property Name="StateID" Type="int" />
+    <Property Name="DistrictId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="PocketStatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="PocketStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PocketStatus" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PocketVillageMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PocketId" Type="int" />
+    <Property Name="SubDistrictId" Type="int" />
+    <Property Name="VillageId" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ProjectExceptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectType" Type="varchar" MaxLength="50" />
+    <Property Name="StackTrace" Type="varchar(max)" />
+    <Property Name="Message" Type="varchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SaDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="saNme" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StateInfo">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateName" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OceanAgro.dksa.StateInformation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="StateInformation">
+    <Key>
+      <PropertyRef Name="ID1" />
+    </Key>
+    <Property Name="ID1" Type="int" Nullable="false" />
+    <Property Name="ID" Type="float" />
+    <Property Name="Stcode" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATE" Type="nvarchar" MaxLength="255" />
+    <Property Name="DistCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="DISTRICT" Type="nvarchar" MaxLength="255" />
+    <Property Name="VillCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="SUBDISTNAM" Type="nvarchar" MaxLength="255" />
+    <Property Name="CBNCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="CdBCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="VILLAGE" Type="nvarchar" MaxLength="255" />
+    <Property Name="CDBLOCKN" Type="nvarchar" MaxLength="255" />
+    <Property Name="GrmCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="GMPNAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="Year" Type="float" />
+    <Property Name="SDHQNAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="SUBDISTHQD" Type="float" />
+    <Property Name="DSTHQNAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="DHQDISTKM" Type="float" />
+    <Property Name="NRSTOWN" Type="nvarchar" MaxLength="255" />
+    <Property Name="NRSTOWNKM" Type="float" />
+    <Property Name="WSUTn" Type="nvarchar" MaxLength="255" />
+    <Property Name="WSUTd" Type="float" />
+    <Property Name="TTLAREAH" Type="float" />
+    <Property Name="TTLHOUSEV" Type="float" />
+    <Property Name="TTLPOPUV" Type="nvarchar" MaxLength="255" />
+    <Property Name="TTLMALEV" Type="float" />
+    <Property Name="TTLFMALEV" Type="float" />
+    <Property Name="TTLSCPOPV" Type="float" />
+    <Property Name="TTLSCMALV" Type="float" />
+    <Property Name="TTLSCFMLV" Type="float" />
+    <Property Name="TTLSTPOPV" Type="float" />
+    <Property Name="TTLSTMALV" Type="float" />
+    <Property Name="TTLSTFMLV" Type="float" />
+    <Property Name="GPSS" Type="float" />
+    <Property Name="GPRSCHN" Type="float" />
+    <Property Name="PPSS" Type="float" />
+    <Property Name="PRPVTSCLN" Type="float" />
+    <Property Name="GMSS" Type="nvarchar" MaxLength="255" />
+    <Property Name="GMSCHOOLN" Type="float" />
+    <Property Name="PMSS" Type="float" />
+    <Property Name="PVMSCHOOLN" Type="float" />
+    <Property Name="GSSS" Type="nvarchar" MaxLength="255" />
+    <Property Name="GSSCHOOLN" Type="float" />
+    <Property Name="PSSS" Type="float" />
+    <Property Name="SECPVTSCLN" Type="float" />
+    <Property Name="GSSSS" Type="float" />
+    <Property Name="GSSSN" Type="float" />
+    <Property Name="PSSSS" Type="float" />
+    <Property Name="PSSSN" Type="float" />
+    <Property Name="NFSG" Type="float" />
+    <Property Name="GASDCLGST" Type="float" />
+    <Property Name="GASDCLGN" Type="float" />
+    <Property Name="PASDCS" Type="float" />
+    <Property Name="PASDCN" Type="float" />
+    <Property Name="GECS" Type="float" />
+    <Property Name="GECN" Type="float" />
+    <Property Name="PECS" Type="float" />
+    <Property Name="PECN" Type="float" />
+    <Property Name="GPS" Type="float" />
+    <Property Name="GOVPOLYTN" Type="float" />
+    <Property Name="PPS" Type="float" />
+    <Property Name="PVTPOLYTN" Type="float" />
+    <Property Name="GVTSS" Type="float" />
+    <Property Name="GVTSSN" Type="float" />
+    <Property Name="PVTSS" Type="float" />
+    <Property Name="PVTSN" Type="float" />
+    <Property Name="CHLTCDRSR" Type="float" />
+    <Property Name="CHCDIPN" Type="float" />
+    <Property Name="CHCPMSTSN" Type="float" />
+    <Property Name="CHCPMSIPN" Type="float" />
+    <Property Name="PRHLTHCLN" Type="float" />
+    <Property Name="PHCDTSN" Type="float" />
+    <Property Name="PHCDPN" Type="float" />
+    <Property Name="PHCPMSTSN" Type="float" />
+    <Property Name="PHCPMSPN" Type="float" />
+    <Property Name="PHLTSCN" Type="float" />
+    <Property Name="PHSCDTSN" Type="float" />
+    <Property Name="PHSCDPN" Type="float" />
+    <Property Name="PHSCPMSTSN" Type="float" />
+    <Property Name="PHSCPMSPN" Type="float" />
+    <Property Name="HOSALOPN" Type="float" />
+    <Property Name="HADTSN" Type="float" />
+    <Property Name="HADPN" Type="float" />
+    <Property Name="HAPMSTSN" Type="float" />
+    <Property Name="HAPMSIPN" Type="float" />
+    <Property Name="DISPENSRN" Type="float" />
+    <Property Name="DDTSN" Type="float" />
+    <Property Name="DDPN" Type="float" />
+    <Property Name="VETHOSN" Type="float" />
+    <Property Name="VETHOSDST" Type="float" />
+    <Property Name="VETHOSPST" Type="float" />
+    <Property Name="VHDPN" Type="float" />
+    <Property Name="VHPMSPN" Type="float" />
+    <Property Name="FMLWARECN" Type="float" />
+    <Property Name="FWCDTSN" Type="float" />
+    <Property Name="FWCDPN" Type="float" />
+    <Property Name="FWCPMSTSN" Type="float" />
+    <Property Name="FWCPMSPN" Type="float" />
+    <Property Name="TWTS" Type="float" />
+    <Property Name="CVRWELLST" Type="float" />
+    <Property Name="CWFRYS" Type="nvarchar" MaxLength="255" />
+    <Property Name="CWFSMAS" Type="nvarchar" MaxLength="255" />
+    <Property Name="UWS" Type="float" />
+    <Property Name="UWFRS" Type="nvarchar" MaxLength="255" />
+    <Property Name="UWFSMS" Type="nvarchar" MaxLength="255" />
+    <Property Name="TWELLST" Type="float" />
+    <Property Name="SPRINGST" Type="float" />
+    <Property Name="TWELLYR" Type="nvarchar" MaxLength="255" />
+    <Property Name="TWBFSMAS" Type="nvarchar" MaxLength="255" />
+    <Property Name="RCS" Type="float" />
+    <Property Name="SFRYS" Type="nvarchar" MaxLength="255" />
+    <Property Name="SFSMASS" Type="nvarchar" MaxLength="255" />
+    <Property Name="RIVRCNLYR" Type="nvarchar" MaxLength="255" />
+    <Property Name="RIVRCNLSM" Type="nvarchar" MaxLength="255" />
+    <Property Name="TANKPLST" Type="float" />
+    <Property Name="TANKPLYR" Type="nvarchar" MaxLength="255" />
+    <Property Name="TPLFS" Type="nvarchar" MaxLength="255" />
+    <Property Name="OS" Type="float" />
+    <Property Name="CDRNGST" Type="float" />
+    <Property Name="OFSA" Type="nvarchar" MaxLength="255" />
+    <Property Name="OFSMA" Type="nvarchar" MaxLength="255" />
+    <Property Name="OPDRNGST" Type="float" />
+    <Property Name="NDRNGST" Type="float" />
+    <Property Name="OKDS" Type="float" />
+    <Property Name="OPDCTSS" Type="float" />
+    <Property Name="OPDUSA" Type="float" />
+    <Property Name="CWDSAHHCS" Type="float" />
+    <Property Name="CBGRWPS" Type="float" />
+    <Property Name="POSTOFICE" Type="float" />
+    <Property Name="POSTOFFDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="SPOSTOFFC" Type="float" />
+    <Property Name="5Km510Kms2" Type="nvarchar" MaxLength="255" />
+    <Property Name="VPINCODST" Type="float" />
+    <Property Name="VPINCODDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="PINCODE" Type="float" />
+    <Property Name="TELLNDLDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="TELLNDLST" Type="float" />
+    <Property Name="PCOMPCOST" Type="float" />
+    <Property Name="5Km510Kms5" Type="nvarchar" MaxLength="255" />
+    <Property Name="MOBLCOVDS" Type="float" />
+    <Property Name="5Km510Kms6" Type="nvarchar" MaxLength="255" />
+    <Property Name="ICCSCS" Type="float" />
+    <Property Name="5Km510Kms7" Type="nvarchar" MaxLength="255" />
+    <Property Name="PCOURERST" Type="float" />
+    <Property Name="PCOURERDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="PBUSSERST" Type="float" />
+    <Property Name="PBUSSERDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="PVTBUSSST" Type="float" />
+    <Property Name="PVTBUSSDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="RAILSTST" Type="float" />
+    <Property Name="RAILSTDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="AMAS" Type="float" />
+    <Property Name="5Km510Kms12" Type="nvarchar" MaxLength="255" />
+    <Property Name="TAXISTATUS" Type="float" />
+    <Property Name="5Km510Kms13" Type="nvarchar" MaxLength="255" />
+    <Property Name="VANSSTATUS" Type="float" />
+    <Property Name="5Km510Kms14" Type="nvarchar" MaxLength="255" />
+    <Property Name="TRACTORST" Type="float" />
+    <Property Name="TRACTORDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="CARTSDAST" Type="float" />
+    <Property Name="5Km510Kms16" Type="nvarchar" MaxLength="255" />
+    <Property Name="NHIGHWAYS" Type="float" />
+    <Property Name="NHIGHWAYD" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATHIWYS" Type="float" />
+    <Property Name="STATHIWYD" Type="nvarchar" MaxLength="255" />
+    <Property Name="MJDIROADS" Type="float" />
+    <Property Name="MJDIROADD" Type="nvarchar" MaxLength="255" />
+    <Property Name="ODRS" Type="float" />
+    <Property Name="5Km510Kms20" Type="nvarchar" MaxLength="255" />
+    <Property Name="BTRS" Type="float" />
+    <Property Name="5Km510Kms21" Type="nvarchar" MaxLength="255" />
+    <Property Name="GRS" Type="float" />
+    <Property Name="5Km510Kms22" Type="nvarchar" MaxLength="255" />
+    <Property Name="ATMDISTANC" Type="nvarchar" MaxLength="255" />
+    <Property Name="ATMSTATUS" Type="float" />
+    <Property Name="COMBANKST" Type="float" />
+    <Property Name="COMBANKDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="COOPBNKST" Type="float" />
+    <Property Name="COOPBNKDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="AGCRDTSOCS" Type="float" />
+    <Property Name="AGCRDTSOCD" Type="nvarchar" MaxLength="255" />
+    <Property Name="SHGRUPST" Type="float" />
+    <Property Name="SHGRUPDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="PDSSHOPST" Type="float" />
+    <Property Name="PDSSHOPDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="MANDIRMST" Type="float" />
+    <Property Name="MANDIRMDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="WKLYHATST" Type="float" />
+    <Property Name="WKLYHATDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="AGMKTSOCS" Type="float" />
+    <Property Name="AGMKTSOCD" Type="nvarchar" MaxLength="255" />
+    <Property Name="CVHS" Type="float" />
+    <Property Name="5Km510Kms31" Type="nvarchar" MaxLength="255" />
+    <Property Name="DLYNEWSPRS" Type="float" />
+    <Property Name="5Km510Kms32" Type="nvarchar" MaxLength="255" />
+    <Property Name="ASSPOLYSTS" Type="float" />
+    <Property Name="ASSPOLYSTD" Type="nvarchar" MaxLength="255" />
+    <Property Name="BIRTHDTRGS" Type="float" />
+    <Property Name="BIRTHDTRGD" Type="nvarchar" MaxLength="255" />
+    <Property Name="POWRSDSST" Type="float" />
+    <Property Name="POWRSAGRI" Type="float" />
+    <Property Name="PSDUSAS" Type="float" />
+    <Property Name="PSDUWOM" Type="float" />
+    <Property Name="PSASAS1" Type="float" />
+    <Property Name="PSAWOM1" Type="float" />
+    <Property Name="POWRSCOMM" Type="float" />
+    <Property Name="PSAWOM2" Type="float" />
+    <Property Name="PSCSAS2" Type="float" />
+    <Property Name="PSFAU" Type="float" />
+    <Property Name="AGRICOMM1" Type="nvarchar" MaxLength="255" />
+    <Property Name="PSUSAS" Type="float" />
+    <Property Name="PSUSOM" Type="float" />
+    <Property Name="MCF" Type="nvarchar" MaxLength="255" />
+    <Property Name="HCF" Type="nvarchar" MaxLength="255" />
+    <Property Name="AGRICOMM2" Type="nvarchar" MaxLength="255" />
+    <Property Name="MCS" Type="nvarchar" MaxLength="255" />
+    <Property Name="HCS" Type="nvarchar" MaxLength="255" />
+    <Property Name="AGRICOMM3" Type="nvarchar" MaxLength="255" />
+    <Property Name="MCT" Type="nvarchar" MaxLength="255" />
+    <Property Name="HCT" Type="nvarchar" MaxLength="255" />
+    <Property Name="FORESTAREA" Type="float" />
+    <Property Name="AREANONAG" Type="float" />
+    <Property Name="BAUNCULTAR" Type="float" />
+    <Property Name="PPASTURGZ" Type="float" />
+    <Property Name="MSTREECROP" Type="float" />
+    <Property Name="CULWSTLAND" Type="float" />
+    <Property Name="CURRNTFALO" Type="float" />
+    <Property Name="FALOLND" Type="float" />
+    <Property Name="ARIRRIBYSO" Type="float" />
+    <Property Name="NETARSOWN" Type="float" />
+    <Property Name="TTLUNIRRIG" Type="float" />
+    <Property Name="CANALAREA" Type="float" />
+    <Property Name="WELLAREA" Type="float" />
+    <Property Name="TANKLAKEAR" Type="float" />
+    <Property Name="WATERFALAR" Type="float" />
+    <Property Name="OTRSOURCE" Type="float" />
+    <Property Name="NRTOWNNAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="NRTWNDIST" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OceanAgro.dksa.Structure' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Structure">
+    <Key>
+      <PropertyRef Name="ID1" />
+    </Key>
+    <Property Name="ID1" Type="int" Nullable="false" />
+    <Property Name="ID" Type="float" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+    <Property Name="Structure" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="SubDistrictInfo">
+    <Key>
+      <PropertyRef Name="SubDistID" />
+    </Key>
+    <Property Name="SubDistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateID" Type="int" />
+    <Property Name="DistrictID" Type="int" />
+    <Property Name="VillCode" Type="varchar" MaxLength="50" />
+    <Property Name="SubDistrictName" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="TODO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserGroupInfo">
+    <Key>
+      <PropertyRef Name="UserGroupID" />
+    </Key>
+    <Property Name="UserGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupID" Type="int" Nullable="false" />
+    <Property Name="UserTypeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserInformation">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserTypeID" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="UserTypeID" />
+    </Key>
+    <Property Name="UserTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VillageInfo">
+    <Key>
+      <PropertyRef Name="VillageID" />
+    </Key>
+    <Property Name="VillageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateID" Type="int" />
+    <Property Name="DistID" Type="int" />
+    <Property Name="SubDistID" Type="int" />
+    <Property Name="CdBCode" Type="varchar" MaxLength="50" />
+    <Property Name="VILLAGE" Type="nvarchar" MaxLength="255" />
+    <Property Name="CDBLOCKN" Type="nvarchar" MaxLength="255" />
+    <Property Name="GrmCode" Type="nvarchar" MaxLength="255" />
+    <Property Name="GMPNAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="Year" Type="int" />
+    <Property Name="SDHQNAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="SUBDISTHQD" Type="int" />
+    <Property Name="DSTHQNAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="DHQDISTKM" Type="int" />
+    <Property Name="NRSTOWN" Type="nvarchar" MaxLength="255" />
+    <Property Name="NRSTOWNKM" Type="int" />
+    <Property Name="WSUTn" Type="nvarchar" MaxLength="255" />
+    <Property Name="WSUTd" Type="int" />
+    <Property Name="TTLAREAH" Type="int" />
+    <Property Name="TTLHOUSEV" Type="int" />
+    <Property Name="TTLPOPUV" Type="nvarchar" MaxLength="255" />
+    <Property Name="TTLMALEV" Type="int" />
+    <Property Name="TTLFMALEV" Type="int" />
+    <Property Name="TTLSCPOPV" Type="int" />
+    <Property Name="TTLSCMALV" Type="float" />
+    <Property Name="TTLSCFMLV" Type="float" />
+    <Property Name="TTLSTPOPV" Type="float" />
+    <Property Name="TTLSTMALV" Type="float" />
+    <Property Name="TTLSTFMLV" Type="float" />
+    <Property Name="GPSS" Type="float" />
+    <Property Name="GPRSCHN" Type="float" />
+    <Property Name="PPSS" Type="float" />
+    <Property Name="PRPVTSCLN" Type="float" />
+    <Property Name="GMSS" Type="nvarchar" MaxLength="255" />
+    <Property Name="GMSCHOOLN" Type="float" />
+    <Property Name="PMSS" Type="float" />
+    <Property Name="PVMSCHOOLN" Type="float" />
+    <Property Name="GSSS" Type="nvarchar" MaxLength="255" />
+    <Property Name="GSSCHOOLN" Type="float" />
+    <Property Name="PSSS" Type="float" />
+    <Property Name="SECPVTSCLN" Type="float" />
+    <Property Name="GSSSS" Type="float" />
+    <Property Name="GSSSN" Type="float" />
+    <Property Name="PSSSS" Type="float" />
+    <Property Name="PSSSN" Type="float" />
+    <Property Name="NFSG" Type="float" />
+    <Property Name="GASDCLGST" Type="float" />
+    <Property Name="GASDCLGN" Type="float" />
+    <Property Name="PASDCS" Type="float" />
+    <Property Name="PASDCN" Type="float" />
+    <Property Name="GECS" Type="float" />
+    <Property Name="GECN" Type="float" />
+    <Property Name="PECS" Type="float" />
+    <Property Name="PECN" Type="float" />
+    <Property Name="GPS" Type="float" />
+    <Property Name="GOVPOLYTN" Type="float" />
+    <Property Name="PPS" Type="float" />
+    <Property Name="PVTPOLYTN" Type="float" />
+    <Property Name="GVTSS" Type="float" />
+    <Property Name="GVTSSN" Type="float" />
+    <Property Name="PVTSS" Type="float" />
+    <Property Name="PVTSN" Type="float" />
+    <Property Name="CHLTCDRSR" Type="float" />
+    <Property Name="CHCDIPN" Type="float" />
+    <Property Name="CHCPMSTSN" Type="float" />
+    <Property Name="CHCPMSIPN" Type="float" />
+    <Property Name="PRHLTHCLN" Type="float" />
+    <Property Name="PHCDTSN" Type="float" />
+    <Property Name="PHCDPN" Type="float" />
+    <Property Name="PHCPMSTSN" Type="float" />
+    <Property Name="PHCPMSPN" Type="float" />
+    <Property Name="PHLTSCN" Type="float" />
+    <Property Name="PHSCDTSN" Type="float" />
+    <Property Name="PHSCDPN" Type="float" />
+    <Property Name="PHSCPMSTSN" Type="float" />
+    <Property Name="PHSCPMSPN" Type="float" />
+    <Property Name="HOSALOPN" Type="float" />
+    <Property Name="HADTSN" Type="float" />
+    <Property Name="HADPN" Type="float" />
+    <Property Name="HAPMSTSN" Type="float" />
+    <Property Name="HAPMSIPN" Type="float" />
+    <Property Name="DISPENSRN" Type="float" />
+    <Property Name="DDTSN" Type="float" />
+    <Property Name="DDPN" Type="float" />
+    <Property Name="VETHOSN" Type="float" />
+    <Property Name="VETHOSDST" Type="float" />
+    <Property Name="VETHOSPST" Type="float" />
+    <Property Name="VHDPN" Type="float" />
+    <Property Name="VHPMSPN" Type="float" />
+    <Property Name="FMLWARECN" Type="float" />
+    <Property Name="FWCDTSN" Type="float" />
+    <Property Name="FWCDPN" Type="float" />
+    <Property Name="FWCPMSTSN" Type="float" />
+    <Property Name="FWCPMSPN" Type="float" />
+    <Property Name="TWTS" Type="float" />
+    <Property Name="CVRWELLST" Type="float" />
+    <Property Name="CWFRYS" Type="nvarchar" MaxLength="255" />
+    <Property Name="CWFSMAS" Type="nvarchar" MaxLength="255" />
+    <Property Name="UWS" Type="float" />
+    <Property Name="UWFRS" Type="nvarchar" MaxLength="255" />
+    <Property Name="UWFSMS" Type="nvarchar" MaxLength="255" />
+    <Property Name="TWELLST" Type="float" />
+    <Property Name="SPRINGST" Type="float" />
+    <Property Name="TWELLYR" Type="nvarchar" MaxLength="255" />
+    <Property Name="TWBFSMAS" Type="nvarchar" MaxLength="255" />
+    <Property Name="RCS" Type="float" />
+    <Property Name="SFRYS" Type="nvarchar" MaxLength="255" />
+    <Property Name="SFSMASS" Type="nvarchar" MaxLength="255" />
+    <Property Name="RIVRCNLYR" Type="nvarchar" MaxLength="255" />
+    <Property Name="RIVRCNLSM" Type="nvarchar" MaxLength="255" />
+    <Property Name="TANKPLST" Type="float" />
+    <Property Name="TANKPLYR" Type="nvarchar" MaxLength="255" />
+    <Property Name="TPLFS" Type="nvarchar" MaxLength="255" />
+    <Property Name="OS" Type="float" />
+    <Property Name="CDRNGST" Type="float" />
+    <Property Name="OFSA" Type="nvarchar" MaxLength="255" />
+    <Property Name="OFSMA" Type="nvarchar" MaxLength="255" />
+    <Property Name="OPDRNGST" Type="float" />
+    <Property Name="NDRNGST" Type="float" />
+    <Property Name="OKDS" Type="float" />
+    <Property Name="OPDCTSS" Type="float" />
+    <Property Name="OPDUSA" Type="float" />
+    <Property Name="CWDSAHHCS" Type="float" />
+    <Property Name="CBGRWPS" Type="float" />
+    <Property Name="POSTOFICE" Type="float" />
+    <Property Name="POSTOFFDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="SPOSTOFFC" Type="float" />
+    <Property Name="5Km510Kms2" Type="nvarchar" MaxLength="255" />
+    <Property Name="VPINCODST" Type="float" />
+    <Property Name="VPINCODDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="PINCODE" Type="float" />
+    <Property Name="TELLNDLDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="TELLNDLST" Type="float" />
+    <Property Name="PCOMPCOST" Type="float" />
+    <Property Name="5Km510Kms5" Type="nvarchar" MaxLength="255" />
+    <Property Name="MOBLCOVDS" Type="float" />
+    <Property Name="5Km510Kms6" Type="nvarchar" MaxLength="255" />
+    <Property Name="ICCSCS" Type="float" />
+    <Property Name="5Km510Kms7" Type="nvarchar" MaxLength="255" />
+    <Property Name="PCOURERST" Type="float" />
+    <Property Name="PCOURERDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="PBUSSERST" Type="float" />
+    <Property Name="PBUSSERDS" Type="nvarchar" MaxLength="255" />
+    <Property Name="PVTBUSSST" Type="float" />
+    <Property Name="PVTBUSSDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="RAILSTST" Type="float" />
+    <Property Name="RAILSTDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="AMAS" Type="float" />
+    <Property Name="5Km510Kms12" Type="nvarchar" MaxLength="255" />
+    <Property Name="TAXISTATUS" Type="float" />
+    <Property Name="5Km510Kms13" Type="nvarchar" MaxLength="255" />
+    <Property Name="VANSSTATUS" Type="float" />
+    <Property Name="5Km510Kms14" Type="nvarchar" MaxLength="255" />
+    <Property Name="TRACTORST" Type="float" />
+    <Property Name="TRACTORDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="CARTSDAST" Type="float" />
+    <Property Name="5Km510Kms16" Type="nvarchar" MaxLength="255" />
+    <Property Name="NHIGHWAYS" Type="float" />
+    <Property Name="NHIGHWAYD" Type="nvarchar" MaxLength="255" />
+    <Property Name="STATHIWYS" Type="float" />
+    <Property Name="STATHIWYD" Type="nvarchar" MaxLength="255" />
+    <Property Name="MJDIROADS" Type="float" />
+    <Property Name="MJDIROADD" Type="nvarchar" MaxLength="255" />
+    <Property Name="ODRS" Type="float" />
+    <Property Name="5Km510Kms20" Type="nvarchar" MaxLength="255" />
+    <Property Name="BTRS" Type="float" />
+    <Property Name="5Km510Kms21" Type="nvarchar" MaxLength="255" />
+    <Property Name="GRS" Type="float" />
+    <Property Name="5Km510Kms22" Type="nvarchar" MaxLength="255" />
+    <Property Name="ATMDISTANC" Type="nvarchar" MaxLength="255" />
+    <Property Name="ATMSTATUS" Type="float" />
+    <Property Name="COMBANKST" Type="float" />
+    <Property Name="COMBANKDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="COOPBNKST" Type="float" />
+    <Property Name="COOPBNKDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="AGCRDTSOCS" Type="float" />
+    <Property Name="AGCRDTSOCD" Type="nvarchar" MaxLength="255" />
+    <Property Name="SHGRUPST" Type="float" />
+    <Property Name="SHGRUPDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="PDSSHOPST" Type="float" />
+    <Property Name="PDSSHOPDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="MANDIRMST" Type="float" />
+    <Property Name="MANDIRMDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="WKLYHATST" Type="float" />
+    <Property Name="WKLYHATDT" Type="nvarchar" MaxLength="255" />
+    <Property Name="AGMKTSOCS" Type="float" />
+    <Property Name="AGMKTSOCD" Type="nvarchar" MaxLength="255" />
+    <Property Name="CVHS" Type="float" />
+    <Property Name="5Km510Kms31" Type="nvarchar" MaxLength="255" />
+    <Property Name="DLYNEWSPRS" Type="float" />
+    <Property Name="5Km510Kms32" Type="nvarchar" MaxLength="255" />
+    <Property Name="ASSPOLYSTS" Type="float" />
+    <Property Name="ASSPOLYSTD" Type="nvarchar" MaxLength="255" />
+    <Property Name="BIRTHDTRGS" Type="float" />
+    <Property Name="BIRTHDTRGD" Type="nvarchar" MaxLength="255" />
+    <Property Name="POWRSDSST" Type="float" />
+    <Property Name="POWRSAGRI" Type="float" />
+    <Property Name="PSDUSAS" Type="float" />
+    <Property Name="PSDUWOM" Type="float" />
+    <Property Name="PSASAS1" Type="float" />
+    <Property Name="PSAWOM1" Type="float" />
+    <Property Name="POWRSCOMM" Type="float" />
+    <Property Name="PSAWOM2" Type="float" />
+    <Property Name="PSCSAS2" Type="float" />
+    <Property Name="PSFAU" Type="float" />
+    <Property Name="AGRICOMM1" Type="nvarchar" MaxLength="255" />
+    <Property Name="PSUSAS" Type="float" />
+    <Property Name="PSUSOM" Type="float" />
+    <Property Name="MCF" Type="nvarchar" MaxLength="255" />
+    <Property Name="HCF" Type="nvarchar" MaxLength="255" />
+    <Property Name="AGRICOMM2" Type="nvarchar" MaxLength="255" />
+    <Property Name="MCS" Type="nvarchar" MaxLength="255" />
+    <Property Name="HCS" Type="nvarchar" MaxLength="255" />
+    <Property Name="AGRICOMM3" Type="nvarchar" MaxLength="255" />
+    <Property Name="MCT" Type="nvarchar" MaxLength="255" />
+    <Property Name="HCT" Type="nvarchar" MaxLength="255" />
+    <Property Name="FORESTAREA" Type="float" />
+    <Property Name="AREANONAG" Type="float" />
+    <Property Name="BAUNCULTAR" Type="float" />
+    <Property Name="PPASTURGZ" Type="float" />
+    <Property Name="MSTREECROP" Type="float" />
+    <Property Name="CULWSTLAND" Type="float" />
+    <Property Name="CURRNTFALO" Type="float" />
+    <Property Name="FALOLND" Type="float" />
+    <Property Name="ARIRRIBYSO" Type="float" />
+    <Property Name="NETARSOWN" Type="float" />
+    <Property Name="TTLUNIRRIG" Type="float" />
+    <Property Name="CANALAREA" Type="float" />
+    <Property Name="WELLAREA" Type="float" />
+    <Property Name="TANKLAKEAR" Type="float" />
+    <Property Name="WATERFALAR" Type="float" />
+    <Property Name="OTRSOURCE" Type="float" />
+    <Property Name="NRTOWNNAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="NRTWNDIST" Type="float" />
+  </EntityType>
+  <Association Name="FK_CropResultInfo_CropInfo">
+    <End Role="CropInfo" Type="Self.CropInfo" Multiplicity="1" />
+    <End Role="CropResultInfo" Type="Self.CropResultInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CropInfo">
+        <PropertyRef Name="CropID" />
+      </Principal>
+      <Dependent Role="CropResultInfo">
+        <PropertyRef Name="CropID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DelerAddInfo_DelerInfo">
+    <End Role="DelerInfo" Type="Self.DelerInfo" Multiplicity="1" />
+    <End Role="DelerAddInfo" Type="Self.DelerAddInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DelerInfo">
+        <PropertyRef Name="DelerID" />
+      </Principal>
+      <Dependent Role="DelerAddInfo">
+        <PropertyRef Name="DelerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DelerAddInfo_DistrictInfo">
+    <End Role="DistrictInfo" Type="Self.DistrictInfo" Multiplicity="1" />
+    <End Role="DelerAddInfo" Type="Self.DelerAddInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DistrictInfo">
+        <PropertyRef Name="DistID" />
+      </Principal>
+      <Dependent Role="DelerAddInfo">
+        <PropertyRef Name="GodownDistrictID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DelerAddInfo_DistrictInfo_DistrictID">
+    <End Role="DistrictInfo" Type="Self.DistrictInfo" Multiplicity="1" />
+    <End Role="DelerAddInfo" Type="Self.DelerAddInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DistrictInfo">
+        <PropertyRef Name="DistID" />
+      </Principal>
+      <Dependent Role="DelerAddInfo">
+        <PropertyRef Name="ShopDistrictID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DelerAddInfo_DistrictInfo1">
+    <End Role="DistrictInfo" Type="Self.DistrictInfo" Multiplicity="1" />
+    <End Role="DelerAddInfo" Type="Self.DelerAddInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DistrictInfo">
+        <PropertyRef Name="DistID" />
+      </Principal>
+      <Dependent Role="DelerAddInfo">
+        <PropertyRef Name="ResidanceDistrictID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DelerAddInfo_StateInfo">
+    <End Role="StateInfo" Type="Self.StateInfo" Multiplicity="1" />
+    <End Role="DelerAddInfo" Type="Self.DelerAddInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateInfo">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="DelerAddInfo">
+        <PropertyRef Name="ShopStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DelerAddInfo_StateInfo1">
+    <End Role="StateInfo" Type="Self.StateInfo" Multiplicity="1" />
+    <End Role="DelerAddInfo" Type="Self.DelerAddInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateInfo">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="DelerAddInfo">
+        <PropertyRef Name="GodownStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DelerAddInfo_StateInfo2">
+    <End Role="StateInfo" Type="Self.StateInfo" Multiplicity="1" />
+    <End Role="DelerAddInfo" Type="Self.DelerAddInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateInfo">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="DelerAddInfo">
+        <PropertyRef Name="ResidanceStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DelerBankInfo_DelerInfo">
+    <End Role="DelerInfo" Type="Self.DelerInfo" Multiplicity="1" />
+    <End Role="DelerBankInfo" Type="Self.DelerBankInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DelerInfo">
+        <PropertyRef Name="DelerID" />
+      </Principal>
+      <Dependent Role="DelerBankInfo">
+        <PropertyRef Name="DelerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DelerInfo_DelerType">
+    <End Role="DelerType" Type="Self.DelerType" Multiplicity="1" />
+    <End Role="DelerInfo" Type="Self.DelerInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DelerType">
+        <PropertyRef Name="DelerTypeID" />
+      </Principal>
+      <Dependent Role="DelerInfo">
+        <PropertyRef Name="DelerTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DelerInfo_UserInformation">
+    <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="1" />
+    <End Role="DelerInfo" Type="Self.DelerInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInformation">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="DelerInfo">
+        <PropertyRef Name="PreparedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DelerInfo_UserInformation1">
+    <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="1" />
+    <End Role="DelerInfo" Type="Self.DelerInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserInformation">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="DelerInfo">
+        <PropertyRef Name="PreparedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DelerLicencesInfo_DelerInfo">
+    <End Role="DelerInfo" Type="Self.DelerInfo" Multiplicity="1" />
+    <End Role="DelerLicencesInfo" Type="Self.DelerLicencesInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DelerInfo">
+        <PropertyRef Name="DelerID" />
+      </Principal>
+      <Dependent Role="DelerLicencesInfo">
+        <PropertyRef Name="DelerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DelerPartenarInfo_DelerInfo">
+    <End Role="DelerInfo" Type="Self.DelerInfo" Multiplicity="1" />
+    <End Role="DelerPartenarInfo" Type="Self.DelerPartenarInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DelerInfo">
+        <PropertyRef Name="DelerID" />
+      </Principal>
+      <Dependent Role="DelerPartenarInfo">
+        <PropertyRef Name="DelerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAaddressDetail_DistrictInfo">
+    <End Role="DistrictInfo" Type="Self.DistrictInfo" Multiplicity="0..1" />
+    <End Role="FAaddressDetail" Type="Self.FAaddressDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DistrictInfo">
+        <PropertyRef Name="DistID" />
+      </Principal>
+      <Dependent Role="FAaddressDetail">
+        <PropertyRef Name="District" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAaddressDetail_FAdetail1">
+    <End Role="FAdetail" Type="Self.FAdetail" Multiplicity="0..1" />
+    <End Role="FAaddressDetail" Type="Self.FAaddressDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FAdetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FAaddressDetail">
+        <PropertyRef Name="FAdetailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAaddressDetail_PocketInfo">
+    <End Role="PocketInfo" Type="Self.PocketInfo" Multiplicity="0..1" />
+    <End Role="FAaddressDetail" Type="Self.FAaddressDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PocketInfo">
+        <PropertyRef Name="PocketID" />
+      </Principal>
+      <Dependent Role="FAaddressDetail">
+        <PropertyRef Name="PocketId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAaddressDetail_StateInfo">
+    <End Role="StateInfo" Type="Self.StateInfo" Multiplicity="0..1" />
+    <End Role="FAaddressDetail" Type="Self.FAaddressDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateInfo">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="FAaddressDetail">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAaddressDetail_SubDistrictInfo">
+    <End Role="SubDistrictInfo" Type="Self.SubDistrictInfo" Multiplicity="0..1" />
+    <End Role="FAaddressDetail" Type="Self.FAaddressDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubDistrictInfo">
+        <PropertyRef Name="SubDistID" />
+      </Principal>
+      <Dependent Role="FAaddressDetail">
+        <PropertyRef Name="SubDistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAaddressDetail_VillageInfo">
+    <End Role="VillageInfo" Type="Self.VillageInfo" Multiplicity="0..1" />
+    <End Role="FAaddressDetail" Type="Self.FAaddressDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VillageInfo">
+        <PropertyRef Name="VillageID" />
+      </Principal>
+      <Dependent Role="FAaddressDetail">
+        <PropertyRef Name="Village" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAapprovals_FAapprovedby">
+    <End Role="FAapprovedBy" Type="Self.FAapprovedBy" Multiplicity="0..1" />
+    <End Role="FAapprovals" Type="Self.FAapprovals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FAapprovedBy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FAapprovals">
+        <PropertyRef Name="FAApprovedId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAapprovals_FAdetail">
+    <End Role="FAdetail" Type="Self.FAdetail" Multiplicity="0..1" />
+    <End Role="FAapprovals" Type="Self.FAapprovals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FAdetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FAapprovals">
+        <PropertyRef Name="FAid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAdetail_FAdesignation">
+    <End Role="FAdesignation" Type="Self.FAdesignation" Multiplicity="0..1" />
+    <End Role="FAdetail" Type="Self.FAdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FAdesignation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FAdetail">
+        <PropertyRef Name="FAdesignationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAdetail_FAStatus">
+    <End Role="FAStatus" Type="Self.FAStatus" Multiplicity="0..1" />
+    <End Role="FAdetail" Type="Self.FAdetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FAStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FAdetail">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAeducationDetail_FAeducationDetail">
+    <End Role="FAdetail" Type="Self.FAdetail" Multiplicity="0..1" />
+    <End Role="FAeducationDetail" Type="Self.FAeducationDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FAdetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FAeducationDetail">
+        <PropertyRef Name="FAid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAexperianceDetail_FAdetail">
+    <End Role="FAdetail" Type="Self.FAdetail" Multiplicity="0..1" />
+    <End Role="FAexperianceDetail" Type="Self.FAexperianceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FAdetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FAexperianceDetail">
+        <PropertyRef Name="FAid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAexperianceDetail_FAPaymentAgency">
+    <End Role="FApaymentAgency" Type="Self.FApaymentAgency" Multiplicity="0..1" />
+    <End Role="FAexperianceDetail" Type="Self.FAexperianceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FApaymentAgency">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FAexperianceDetail">
+        <PropertyRef Name="PaymentAgencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerConsumptionMapping_FarmerConsumption">
+    <End Role="FarmerConsumption" Type="Self.FarmerConsumption" Multiplicity="0..1" />
+    <End Role="FarmerConsumptionMapping" Type="Self.FarmerConsumptionMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FarmerConsumption">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FarmerConsumptionMapping">
+        <PropertyRef Name="ConsumptionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerConsumptionMapping_FarmerDetail">
+    <End Role="FarmerDetail" Type="Self.FarmerDetail" Multiplicity="0..1" />
+    <End Role="FarmerConsumptionMapping" Type="Self.FarmerConsumptionMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FarmerDetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FarmerConsumptionMapping">
+        <PropertyRef Name="FarmerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerCropsMapping_CropInfo">
+    <End Role="CropInfo" Type="Self.CropInfo" Multiplicity="0..1" />
+    <End Role="FarmerCropsMapping" Type="Self.FarmerCropsMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CropInfo">
+        <PropertyRef Name="CropID" />
+      </Principal>
+      <Dependent Role="FarmerCropsMapping">
+        <PropertyRef Name="cropId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerCropsMapping_FarmerDetail">
+    <End Role="FarmerDetail" Type="Self.FarmerDetail" Multiplicity="0..1" />
+    <End Role="FarmerCropsMapping" Type="Self.FarmerCropsMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FarmerDetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FarmerCropsMapping">
+        <PropertyRef Name="farmerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerDealerMapping_DelerInfo">
+    <End Role="DelerInfo" Type="Self.DelerInfo" Multiplicity="0..1" />
+    <End Role="FarmerDealerMapping" Type="Self.FarmerDealerMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DelerInfo">
+        <PropertyRef Name="DelerID" />
+      </Principal>
+      <Dependent Role="FarmerDealerMapping">
+        <PropertyRef Name="DealerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerDealerMapping_FarmerDetail">
+    <End Role="FarmerDetail" Type="Self.FarmerDetail" Multiplicity="0..1" />
+    <End Role="FarmerDealerMapping" Type="Self.FarmerDealerMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FarmerDetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FarmerDealerMapping">
+        <PropertyRef Name="FarmerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerDetail_DealerDetail">
+    <End Role="DealerDetail" Type="Self.DealerDetail" Multiplicity="0..1" />
+    <End Role="FarmerDetail" Type="Self.FarmerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DealerDetail">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FarmerDetail">
+        <PropertyRef Name="DealerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerDetail_FarmerTypeDetail">
+    <End Role="FarmerTypeDetail" Type="Self.FarmerTypeDetail" Multiplicity="1" />
+    <End Role="FarmerDetail" Type="Self.FarmerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FarmerTypeDetail">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FarmerDetail">
+        <PropertyRef Name="FarmerTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerInputSourceMapping_DelerInfo">
+    <End Role="DelerInfo" Type="Self.DelerInfo" Multiplicity="0..1" />
+    <End Role="FarmerInputSourceMapping" Type="Self.FarmerInputSourceMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DelerInfo">
+        <PropertyRef Name="DelerID" />
+      </Principal>
+      <Dependent Role="FarmerInputSourceMapping">
+        <PropertyRef Name="DealerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerInputSourceMapping_FarmerDetail">
+    <End Role="FarmerDetail" Type="Self.FarmerDetail" Multiplicity="0..1" />
+    <End Role="FarmerInputSourceMapping" Type="Self.FarmerInputSourceMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FarmerDetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FarmerInputSourceMapping">
+        <PropertyRef Name="FarmerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerInputSourceMapping_InputSources">
+    <End Role="InputSources" Type="Self.InputSources" Multiplicity="0..1" />
+    <End Role="FarmerInputSourceMapping" Type="Self.FarmerInputSourceMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InputSources">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FarmerInputSourceMapping">
+        <PropertyRef Name="InputSourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerInputSourceMapping_VillageInfo">
+    <End Role="VillageInfo" Type="Self.VillageInfo" Multiplicity="0..1" />
+    <End Role="FarmerInputSourceMapping" Type="Self.FarmerInputSourceMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VillageInfo">
+        <PropertyRef Name="VillageID" />
+      </Principal>
+      <Dependent Role="FarmerInputSourceMapping">
+        <PropertyRef Name="VillageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerLandMapping_FarmerDetail">
+    <End Role="FarmerDetail" Type="Self.FarmerDetail" Multiplicity="0..1" />
+    <End Role="FarmerLandMapping" Type="Self.FarmerLandMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FarmerDetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FarmerLandMapping">
+        <PropertyRef Name="FarmerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerLandMapping_FarmerLandType">
+    <End Role="FarmerLandType" Type="Self.FarmerLandType" Multiplicity="0..1" />
+    <End Role="FarmerLandMapping" Type="Self.FarmerLandMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FarmerLandType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FarmerLandMapping">
+        <PropertyRef Name="LandTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerLandMapping_LandOwnershipType">
+    <End Role="LandOwnershipType" Type="Self.LandOwnershipType" Multiplicity="0..1" />
+    <End Role="FarmerLandMapping" Type="Self.FarmerLandMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LandOwnershipType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FarmerLandMapping">
+        <PropertyRef Name="OwnershipTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerPesticesMapping_FarmerDetail">
+    <End Role="FarmerDetail" Type="Self.FarmerDetail" Multiplicity="0..1" />
+    <End Role="FarmerPesticesMapping" Type="Self.FarmerPesticesMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FarmerDetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FarmerPesticesMapping">
+        <PropertyRef Name="farmerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerPesticesMapping_Pesticides">
+    <End Role="FarmerPesticideType" Type="Self.FarmerPesticideType" Multiplicity="0..1" />
+    <End Role="FarmerPesticesMapping" Type="Self.FarmerPesticesMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FarmerPesticideType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FarmerPesticesMapping">
+        <PropertyRef Name="PesticesTyepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FarmerPesticesMapping_PestiesUnit">
+    <End Role="PestiesUnit" Type="Self.PestiesUnit" Multiplicity="0..1" />
+    <End Role="FarmerPesticesMapping" Type="Self.FarmerPesticesMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PestiesUnit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FarmerPesticesMapping">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAtargetDetail_DealerDetail">
+    <End Role="DealerDetail" Type="Self.DealerDetail" Multiplicity="0..1" />
+    <End Role="FAtargetDetail" Type="Self.FAtargetDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DealerDetail">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FAtargetDetail">
+        <PropertyRef Name="DealerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAtargetDetail_FaDetail">
+    <End Role="FAdetail" Type="Self.FAdetail" Multiplicity="0..1" />
+    <End Role="FAtargetDetail" Type="Self.FAtargetDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FAdetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FAtargetDetail">
+        <PropertyRef Name="FAid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAtargetVillageMappings_CropInfo">
+    <End Role="CropInfo" Type="Self.CropInfo" Multiplicity="0..1" />
+    <End Role="FAtargetVillageMappings" Type="Self.FAtargetVillageMappings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CropInfo">
+        <PropertyRef Name="CropID" />
+      </Principal>
+      <Dependent Role="FAtargetVillageMappings">
+        <PropertyRef Name="CropId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAtargetVillageMappings_FAtargetDetail">
+    <End Role="FAtargetDetail" Type="Self.FAtargetDetail" Multiplicity="0..1" />
+    <End Role="FAtargetVillageMappings" Type="Self.FAtargetVillageMappings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FAtargetDetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FAtargetVillageMappings">
+        <PropertyRef Name="TargetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAuploadedDocumentDetail_FAdetail">
+    <End Role="FAdetail" Type="Self.FAdetail" Multiplicity="1" />
+    <End Role="FAuploadedDocumentDetail" Type="Self.FAuploadedDocumentDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FAdetail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FAuploadedDocumentDetail">
+        <PropertyRef Name="FAid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAuploadedDocumentDetail_FaDocumentType">
+    <End Role="FAdocumentType" Type="Self.FAdocumentType" Multiplicity="1" />
+    <End Role="FAuploadedDocumentDetail" Type="Self.FAuploadedDocumentDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FAdocumentType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FAuploadedDocumentDetail">
+        <PropertyRef Name="DocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PesticesInfo_FarmerPesticideType">
+    <End Role="FarmerPesticideType" Type="Self.FarmerPesticideType" Multiplicity="0..1" />
+    <End Role="PesticesInfo" Type="Self.PesticesInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FarmerPesticideType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PesticesInfo">
+        <PropertyRef Name="PesticideTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pesticides_FarmerPesticideType">
+    <End Role="FarmerPesticideType" Type="Self.FarmerPesticideType" Multiplicity="0..1" />
+    <End Role="Pesticides" Type="Self.Pesticides" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FarmerPesticideType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pesticides">
+        <PropertyRef Name="PesticideTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PocketCropMapping_CropInfo">
+    <End Role="CropInfo" Type="Self.CropInfo" Multiplicity="0..1" />
+    <End Role="PocketCropMapping" Type="Self.PocketCropMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CropInfo">
+        <PropertyRef Name="CropID" />
+      </Principal>
+      <Dependent Role="PocketCropMapping">
+        <PropertyRef Name="CropId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PocketCropMapping_PocketInfo">
+    <End Role="PocketInfo" Type="Self.PocketInfo" Multiplicity="0..1" />
+    <End Role="PocketCropMapping" Type="Self.PocketCropMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PocketInfo">
+        <PropertyRef Name="PocketID" />
+      </Principal>
+      <Dependent Role="PocketCropMapping">
+        <PropertyRef Name="PocketId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PocketFertilizerMapping_Fertilizers">
+    <End Role="FertilizerInfo" Type="Self.FertilizerInfo" Multiplicity="0..1" />
+    <End Role="PocketFertilizerMapping" Type="Self.PocketFertilizerMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FertilizerInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PocketFertilizerMapping">
+        <PropertyRef Name="FertilizerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PocketFertilizerMapping_PocketInfo">
+    <End Role="PocketInfo" Type="Self.PocketInfo" Multiplicity="0..1" />
+    <End Role="PocketFertilizerMapping" Type="Self.PocketFertilizerMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PocketInfo">
+        <PropertyRef Name="PocketID" />
+      </Principal>
+      <Dependent Role="PocketFertilizerMapping">
+        <PropertyRef Name="PocketId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PocketInfo_DistrictInfo">
+    <End Role="DistrictInfo" Type="Self.DistrictInfo" Multiplicity="0..1" />
+    <End Role="PocketInfo" Type="Self.PocketInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DistrictInfo">
+        <PropertyRef Name="DistID" />
+      </Principal>
+      <Dependent Role="PocketInfo">
+        <PropertyRef Name="DistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PocketInfo_PocketStatus">
+    <End Role="PocketStatus" Type="Self.PocketStatus" Multiplicity="0..1" />
+    <End Role="PocketInfo" Type="Self.PocketInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PocketStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PocketInfo">
+        <PropertyRef Name="PocketStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PocketInfo_StateInfo">
+    <End Role="StateInfo" Type="Self.StateInfo" Multiplicity="0..1" />
+    <End Role="PocketInfo" Type="Self.PocketInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateInfo">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="PocketInfo">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PocketVillageMapping_PocketInfo">
+    <End Role="PocketInfo" Type="Self.PocketInfo" Multiplicity="0..1" />
+    <End Role="PocketVillageMapping" Type="Self.PocketVillageMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PocketInfo">
+        <PropertyRef Name="PocketID" />
+      </Principal>
+      <Dependent Role="PocketVillageMapping">
+        <PropertyRef Name="PocketId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PocketVillageMapping_SubDistrictInfo">
+    <End Role="SubDistrictInfo" Type="Self.SubDistrictInfo" Multiplicity="0..1" />
+    <End Role="PocketVillageMapping" Type="Self.PocketVillageMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubDistrictInfo">
+        <PropertyRef Name="SubDistID" />
+      </Principal>
+      <Dependent Role="PocketVillageMapping">
+        <PropertyRef Name="SubDistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PocketVillageMapping_VillageInfo">
+    <End Role="VillageInfo" Type="Self.VillageInfo" Multiplicity="0..1" />
+    <End Role="PocketVillageMapping" Type="Self.PocketVillageMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VillageInfo">
+        <PropertyRef Name="VillageID" />
+      </Principal>
+      <Dependent Role="PocketVillageMapping">
+        <PropertyRef Name="VillageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StateID_District_StateInfo">
+    <End Role="StateInfo" Type="Self.StateInfo" Multiplicity="1" />
+    <End Role="DistrictInfo" Type="Self.DistrictInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateInfo">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="DistrictInfo">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubDistrictInto_DistrictInfo">
+    <End Role="DistrictInfo" Type="Self.DistrictInfo" Multiplicity="0..1" />
+    <End Role="SubDistrictInfo" Type="Self.SubDistrictInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DistrictInfo">
+        <PropertyRef Name="DistID" />
+      </Principal>
+      <Dependent Role="SubDistrictInfo">
+        <PropertyRef Name="DistrictID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubDistrictInto_StateInfo">
+    <End Role="StateInfo" Type="Self.StateInfo" Multiplicity="0..1" />
+    <End Role="SubDistrictInfo" Type="Self.SubDistrictInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateInfo">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="SubDistrictInfo">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserGroupInfo_GroupInfo">
+    <End Role="GroupInfo" Type="Self.GroupInfo" Multiplicity="1" />
+    <End Role="UserGroupInfo" Type="Self.UserGroupInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GroupInfo">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="UserGroupInfo">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserInformation_UserType">
+    <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+    <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="UserTypeID" />
+      </Principal>
+      <Dependent Role="UserInformation">
+        <PropertyRef Name="UserTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTypeID_UserGroupInfo_UserType">
+    <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+    <End Role="UserGroupInfo" Type="Self.UserGroupInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="UserTypeID" />
+      </Principal>
+      <Dependent Role="UserGroupInfo">
+        <PropertyRef Name="UserTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VillageInfo_DistrictInfo">
+    <End Role="DistrictInfo" Type="Self.DistrictInfo" Multiplicity="0..1" />
+    <End Role="VillageInfo" Type="Self.VillageInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DistrictInfo">
+        <PropertyRef Name="DistID" />
+      </Principal>
+      <Dependent Role="VillageInfo">
+        <PropertyRef Name="DistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VillageInfo_StateInfo">
+    <End Role="StateInfo" Type="Self.StateInfo" Multiplicity="0..1" />
+    <End Role="VillageInfo" Type="Self.VillageInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateInfo">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="VillageInfo">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VillageInfo_SubDistrictInto">
+    <End Role="SubDistrictInfo" Type="Self.SubDistrictInfo" Multiplicity="0..1" />
+    <End Role="VillageInfo" Type="Self.VillageInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubDistrictInfo">
+        <PropertyRef Name="SubDistID" />
+      </Principal>
+      <Dependent Role="VillageInfo">
+        <PropertyRef Name="SubDistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBModelStoreContainer">
+    <EntitySet Name="CropInfo" EntityType="Self.CropInfo" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="CropResultInfo" EntityType="Self.CropResultInfo" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="DealerDetail" EntityType="Self.DealerDetail" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="DelerAddInfo" EntityType="Self.DelerAddInfo" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="DelerBankInfo" EntityType="Self.DelerBankInfo" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="DelerInfo" EntityType="Self.DelerInfo" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="DelerLicencesInfo" EntityType="Self.DelerLicencesInfo" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="DelerPartenarInfo" EntityType="Self.DelerPartenarInfo" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="DelerType" EntityType="Self.DelerType" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="DistrictInfo" EntityType="Self.DistrictInfo" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FAaddressDetail" EntityType="Self.FAaddressDetail" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FAapprovals" EntityType="Self.FAapprovals" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FAapprovedBy" EntityType="Self.FAapprovedBy" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FAdesignation" EntityType="Self.FAdesignation" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FAdetail" EntityType="Self.FAdetail" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FAdocumentType" EntityType="Self.FAdocumentType" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FAeducationDetail" EntityType="Self.FAeducationDetail" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FAexperianceDetail" EntityType="Self.FAexperianceDetail" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FApaymentAgency" EntityType="Self.FApaymentAgency" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FarmerConsumption" EntityType="Self.FarmerConsumption" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FarmerConsumptionMapping" EntityType="Self.FarmerConsumptionMapping" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FarmerCropsMapping" EntityType="Self.FarmerCropsMapping" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FarmerDealerMapping" EntityType="Self.FarmerDealerMapping" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FarmerDetail" EntityType="Self.FarmerDetail" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FarmerInputSourceMapping" EntityType="Self.FarmerInputSourceMapping" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FarmerLandMapping" EntityType="Self.FarmerLandMapping" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FarmerLandType" EntityType="Self.FarmerLandType" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FarmerPesticesMapping" EntityType="Self.FarmerPesticesMapping" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FarmerPesticideType" EntityType="Self.FarmerPesticideType" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FarmerTypeDetail" EntityType="Self.FarmerTypeDetail" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FAStatus" EntityType="Self.FAStatus" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FAtargetDetail" EntityType="Self.FAtargetDetail" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FAtargetVillageMappings" EntityType="Self.FAtargetVillageMappings" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FAuploadedDocumentDetail" EntityType="Self.FAuploadedDocumentDetail" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="FertilizerInfo" EntityType="Self.FertilizerInfo" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="GroupInfo" EntityType="Self.GroupInfo" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="InputSources" EntityType="Self.InputSources" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="IrrigationSources" EntityType="Self.IrrigationSources" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="LandOwnershipType" EntityType="Self.LandOwnershipType" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="PesticesInfo" EntityType="Self.PesticesInfo" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="Pesticides" EntityType="Self.Pesticides" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="PestiesUnit" EntityType="Self.PestiesUnit" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="PocketCropMapping" EntityType="Self.PocketCropMapping" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="PocketFertilizerMapping" EntityType="Self.PocketFertilizerMapping" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="PocketInfo" EntityType="Self.PocketInfo" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="PocketStatus" EntityType="Self.PocketStatus" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="PocketVillageMapping" EntityType="Self.PocketVillageMapping" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="ProjectExceptions" EntityType="Self.ProjectExceptions" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="SaDetail" EntityType="Self.SaDetail" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="StateInfo" EntityType="Self.StateInfo" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="SubDistrictInfo" EntityType="Self.SubDistrictInfo" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="TODO" EntityType="Self.TODO" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="UserGroupInfo" EntityType="Self.UserGroupInfo" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="UserInformation" EntityType="Self.UserInformation" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="VillageInfo" EntityType="Self.VillageInfo" Schema="dksa" store:Type="Tables" />
+    <EntitySet Name="StateInformation" EntityType="Self.StateInformation" store:Type="Tables" store:Schema="dksa">
+      <DefiningQuery>SELECT 
+    [StateInformation].[ID1] AS [ID1], 
+    [StateInformation].[ID] AS [ID], 
+    [StateInformation].[Stcode] AS [Stcode], 
+    [StateInformation].[STATE] AS [STATE], 
+    [StateInformation].[DistCode] AS [DistCode], 
+    [StateInformation].[DISTRICT] AS [DISTRICT], 
+    [StateInformation].[VillCode] AS [VillCode], 
+    [StateInformation].[SUBDISTNAM] AS [SUBDISTNAM], 
+    [StateInformation].[CBNCode] AS [CBNCode], 
+    [StateInformation].[CdBCode] AS [CdBCode], 
+    [StateInformation].[VILLAGE] AS [VILLAGE], 
+    [StateInformation].[CDBLOCKN] AS [CDBLOCKN], 
+    [StateInformation].[GrmCode] AS [GrmCode], 
+    [StateInformation].[GMPNAME] AS [GMPNAME], 
+    [StateInformation].[Year] AS [Year], 
+    [StateInformation].[SDHQNAME] AS [SDHQNAME], 
+    [StateInformation].[SUBDISTHQD] AS [SUBDISTHQD], 
+    [StateInformation].[DSTHQNAME] AS [DSTHQNAME], 
+    [StateInformation].[DHQDISTKM] AS [DHQDISTKM], 
+    [StateInformation].[NRSTOWN] AS [NRSTOWN], 
+    [StateInformation].[NRSTOWNKM] AS [NRSTOWNKM], 
+    [StateInformation].[WSUTn] AS [WSUTn], 
+    [StateInformation].[WSUTd] AS [WSUTd], 
+    [StateInformation].[TTLAREAH] AS [TTLAREAH], 
+    [StateInformation].[TTLHOUSEV] AS [TTLHOUSEV], 
+    [StateInformation].[TTLPOPUV] AS [TTLPOPUV], 
+    [StateInformation].[TTLMALEV] AS [TTLMALEV], 
+    [StateInformation].[TTLFMALEV] AS [TTLFMALEV], 
+    [StateInformation].[TTLSCPOPV] AS [TTLSCPOPV], 
+    [StateInformation].[TTLSCMALV] AS [TTLSCMALV], 
+    [StateInformation].[TTLSCFMLV] AS [TTLSCFMLV], 
+    [StateInformation].[TTLSTPOPV] AS [TTLSTPOPV], 
+    [StateInformation].[TTLSTMALV] AS [TTLSTMALV], 
+    [StateInformation].[TTLSTFMLV] AS [TTLSTFMLV], 
+    [StateInformation].[GPSS] AS [GPSS], 
+    [StateInformation].[GPRSCHN] AS [GPRSCHN], 
+    [StateInformation].[PPSS] AS [PPSS], 
+    [StateInformation].[PRPVTSCLN] AS [PRPVTSCLN], 
+    [StateInformation].[GMSS] AS [GMSS], 
+    [StateInformation].[GMSCHOOLN] AS [GMSCHOOLN], 
+    [StateInformation].[PMSS] AS [PMSS], 
+    [StateInformation].[PVMSCHOOLN] AS [PVMSCHOOLN], 
+    [StateInformation].[GSSS] AS [GSSS], 
+    [StateInformation].[GSSCHOOLN] AS [GSSCHOOLN], 
+    [StateInformation].[PSSS] AS [PSSS], 
+    [StateInformation].[SECPVTSCLN] AS [SECPVTSCLN], 
+    [StateInformation].[GSSSS] AS [GSSSS], 
+    [StateInformation].[GSSSN] AS [GSSSN], 
+    [StateInformation].[PSSSS] AS [PSSSS], 
+    [StateInformation].[PSSSN] AS [PSSSN], 
+    [StateInformation].[NFSG] AS [NFSG], 
+    [StateInformation].[GASDCLGST] AS [GASDCLGST], 
+    [StateInformation].[GASDCLGN] AS [GASDCLGN], 
+    [StateInformation].[PASDCS] AS [PASDCS], 
+    [StateInformation].[PASDCN] AS [PASDCN], 
+    [StateInformation].[GECS] AS [GECS], 
+    [StateInformation].[GECN] AS [GECN], 
+    [StateInformation].[PECS] AS [PECS], 
+    [StateInformation].[PECN] AS [PECN], 
+    [StateInformation].[GPS] AS [GPS], 
+    [StateInformation].[GOVPOLYTN] AS [GOVPOLYTN], 
+    [StateInformation].[PPS] AS [PPS], 
+    [StateInformation].[PVTPOLYTN] AS [PVTPOLYTN], 
+    [StateInformation].[GVTSS] AS [GVTSS], 
+    [StateInformation].[GVTSSN] AS [GVTSSN], 
+    [StateInformation].[PVTSS] AS [PVTSS], 
+    [StateInformation].[PVTSN] AS [PVTSN], 
+    [StateInformation].[CHLTCDRSR] AS [CHLTCDRSR], 
+    [StateInformation].[CHCDIPN] AS [CHCDIPN], 
+    [StateInformation].[CHCPMSTSN] AS [CHCPMSTSN], 
+    [StateInformation].[CHCPMSIPN] AS [CHCPMSIPN], 
+    [StateInformation].[PRHLTHCLN] AS [PRHLTHCLN], 
+    [StateInformation].[PHCDTSN] AS [PHCDTSN], 
+    [StateInformation].[PHCDPN] AS [PHCDPN], 
+    [StateInformation].[PHCPMSTSN] AS [PHCPMSTSN], 
+    [StateInformation].[PHCPMSPN] AS [PHCPMSPN], 
+    [StateInformation].[PHLTSCN] AS [PHLTSCN], 
+    [StateInformation].[PHSCDTSN] AS [PHSCDTSN], 
+    [StateInformation].[PHSCDPN] AS [PHSCDPN], 
+    [StateInformation].[PHSCPMSTSN] AS [PHSCPMSTSN], 
+    [StateInformation].[PHSCPMSPN] AS [PHSCPMSPN], 
+    [StateInformation].[HOSALOPN] AS [HOSALOPN], 
+    [StateInformation].[HADTSN] AS [HADTSN], 
+    [StateInformation].[HADPN] AS [HADPN], 
+    [StateInformation].[HAPMSTSN] AS [HAPMSTSN], 
+    [StateInformation].[HAPMSIPN] AS [HAPMSIPN], 
+    [StateInformation].[DISPENSRN] AS [DISPENSRN], 
+    [StateInformation].[DDTSN] AS [DDTSN], 
+    [StateInformation].[DDPN] AS [DDPN], 
+    [StateInformation].[VETHOSN] AS [VETHOSN], 
+    [StateInformation].[VETHOSDST] AS [VETHOSDST], 
+    [StateInformation].[VETHOSPST] AS [VETHOSPST], 
+    [StateInformation].[VHDPN] AS [VHDPN], 
+    [StateInformation].[VHPMSPN] AS [VHPMSPN], 
+    [StateInformation].[FMLWARECN] AS [FMLWARECN], 
+    [StateInformation].[FWCDTSN] AS [FWCDTSN], 
+    [StateInformation].[FWCDPN] AS [FWCDPN], 
+    [StateInformation].[FWCPMSTSN] AS [FWCPMSTSN], 
+    [StateInformation].[FWCPMSPN] AS [FWCPMSPN], 
+    [StateInformation].[TWTS] AS [TWTS], 
+    [StateInformation].[CVRWELLST] AS [CVRWELLST], 
+    [StateInformation].[CWFRYS] AS [CWFRYS], 
+    [StateInformation].[CWFSMAS] AS [CWFSMAS], 
+    [StateInformation].[UWS] AS [UWS], 
+    [StateInformation].[UWFRS] AS [UWFRS], 
+    [StateInformation].[UWFSMS] AS [UWFSMS], 
+    [StateInformation].[TWELLST] AS [TWELLST], 
+    [StateInformation].[SPRINGST] AS [SPRINGST], 
+    [StateInformation].[TWELLYR] AS [TWELLYR], 
+    [StateInformation].[TWBFSMAS] AS [TWBFSMAS], 
+    [StateInformation].[RCS] AS [RCS], 
+    [StateInformation].[SFRYS] AS [SFRYS], 
+    [StateInformation].[SFSMASS] AS [SFSMASS], 
+    [StateInformation].[RIVRCNLYR] AS [RIVRCNLYR], 
+    [StateInformation].[RIVRCNLSM] AS [RIVRCNLSM], 
+    [StateInformation].[TANKPLST] AS [TANKPLST], 
+    [StateInformation].[TANKPLYR] AS [TANKPLYR], 
+    [StateInformation].[TPLFS] AS [TPLFS], 
+    [StateInformation].[OS] AS [OS], 
+    [StateInformation].[CDRNGST] AS [CDRNGST], 
+    [StateInformation].[OFSA] AS [OFSA], 
+    [StateInformation].[OFSMA] AS [OFSMA], 
+    [StateInformation].[OPDRNGST] AS [OPDRNGST], 
+    [StateInformation].[NDRNGST] AS [NDRNGST], 
+    [StateInformation].[OKDS] AS [OKDS], 
+    [StateInformation].[OPDCTSS] AS [OPDCTSS], 
+    [StateInformation].[OPDUSA] AS [OPDUSA], 
+    [StateInformation].[CWDSAHHCS] AS [CWDSAHHCS], 
+    [StateInformation].[CBGRWPS] AS [CBGRWPS], 
+    [StateInformation].[POSTOFICE] AS [POSTOFICE], 
+    [StateInformation].[POSTOFFDS] AS [POSTOFFDS], 
+    [StateInformation].[SPOSTOFFC] AS [SPOSTOFFC], 
+    [StateInformation].[5Km510Kms2] AS [5Km510Kms2], 
+    [StateInformation].[VPINCODST] AS [VPINCODST], 
+    [StateInformation].[VPINCODDS] AS [VPINCODDS], 
+    [StateInformation].[PINCODE] AS [PINCODE], 
+    [StateInformation].[TELLNDLDS] AS [TELLNDLDS], 
+    [StateInformation].[TELLNDLST] AS [TELLNDLST], 
+    [StateInformation].[PCOMPCOST] AS [PCOMPCOST], 
+    [StateInformation].[5Km510Kms5] AS [5Km510Kms5], 
+    [StateInformation].[MOBLCOVDS] AS [MOBLCOVDS], 
+    [StateInformation].[5Km510Kms6] AS [5Km510Kms6], 
+    [StateInformation].[ICCSCS] AS [ICCSCS], 
+    [StateInformation].[5Km510Kms7] AS [5Km510Kms7], 
+    [StateInformation].[PCOURERST] AS [PCOURERST], 
+    [StateInformation].[PCOURERDS] AS [PCOURERDS], 
+    [StateInformation].[PBUSSERST] AS [PBUSSERST], 
+    [StateInformation].[PBUSSERDS] AS [PBUSSERDS], 
+    [StateInformation].[PVTBUSSST] AS [PVTBUSSST], 
+    [StateInformation].[PVTBUSSDT] AS [PVTBUSSDT], 
+    [StateInformation].[RAILSTST] AS [RAILSTST], 
+    [StateInformation].[RAILSTDT] AS [RAILSTDT], 
+    [StateInformation].[AMAS] AS [AMAS], 
+    [StateInformation].[5Km510Kms12] AS [5Km510Kms12], 
+    [StateInformation].[TAXISTATUS] AS [TAXISTATUS], 
+    [StateInformation].[5Km510Kms13] AS [5Km510Kms13], 
+    [StateInformation].[VANSSTATUS] AS [VANSSTATUS], 
+    [StateInformation].[5Km510Kms14] AS [5Km510Kms14], 
+    [StateInformation].[TRACTORST] AS [TRACTORST], 
+    [StateInformation].[TRACTORDT] AS [TRACTORDT], 
+    [StateInformation].[CARTSDAST] AS [CARTSDAST], 
+    [StateInformation].[5Km510Kms16] AS [5Km510Kms16], 
+    [StateInformation].[NHIGHWAYS] AS [NHIGHWAYS], 
+    [StateInformation].[NHIGHWAYD] AS [NHIGHWAYD], 
+    [StateInformation].[STATHIWYS] AS [STATHIWYS], 
+    [StateInformation].[STATHIWYD] AS [STATHIWYD], 
+    [StateInformation].[MJDIROADS] AS [MJDIROADS], 
+    [StateInformation].[MJDIROADD] AS [MJDIROADD], 
+    [StateInformation].[ODRS] AS [ODRS], 
+    [StateInformation].[5Km510Kms20] AS [5Km510Kms20], 
+    [StateInformation].[BTRS] AS [BTRS], 
+    [StateInformation].[5Km510Kms21] AS [5Km510Kms21], 
+    [StateInformation].[GRS] AS [GRS], 
+    [StateInformation].[5Km510Kms22] AS [5Km510Kms22], 
+    [StateInformation].[ATMDISTANC] AS [ATMDISTANC], 
+    [StateInformation].[ATMSTATUS] AS [ATMSTATUS], 
+    [StateInformation].[COMBANKST] AS [COMBANKST], 
+    [StateInformation].[COMBANKDT] AS [COMBANKDT], 
+    [StateInformation].[COOPBNKST] AS [COOPBNKST], 
+    [StateInformation].[COOPBNKDT] AS [COOPBNKDT], 
+    [StateInformation].[AGCRDTSOCS] AS [AGCRDTSOCS], 
+    [StateInformation].[AGCRDTSOCD] AS [AGCRDTSOCD], 
+    [StateInformation].[SHGRUPST] AS [SHGRUPST], 
+    [StateInformation].[SHGRUPDT] AS [SHGRUPDT], 
+    [StateInformation].[PDSSHOPST] AS [PDSSHOPST], 
+    [StateInformation].[PDSSHOPDT] AS [PDSSHOPDT], 
+    [StateInformation].[MANDIRMST] AS [MANDIRMST], 
+    [StateInformation].[MANDIRMDT] AS [MANDIRMDT], 
+    [StateInformation].[WKLYHATST] AS [WKLYHATST], 
+    [StateInformation].[WKLYHATDT] AS [WKLYHATDT], 
+    [StateInformation].[AGMKTSOCS] AS [AGMKTSOCS], 
+    [StateInformation].[AGMKTSOCD] AS [AGMKTSOCD], 
+    [StateInformation].[CVHS] AS [CVHS], 
+    [StateInformation].[5Km510Kms31] AS [5Km510Kms31], 
+    [StateInformation].[DLYNEWSPRS] AS [DLYNEWSPRS], 
+    [StateInformation].[5Km510Kms32] AS [5Km510Kms32], 
+    [StateInformation].[ASSPOLYSTS] AS [ASSPOLYSTS], 
+    [StateInformation].[ASSPOLYSTD] AS [ASSPOLYSTD], 
+    [StateInformation].[BIRTHDTRGS] AS [BIRTHDTRGS], 
+    [StateInformation].[BIRTHDTRGD] AS [BIRTHDTRGD], 
+    [StateInformation].[POWRSDSST] AS [POWRSDSST], 
+    [StateInformation].[POWRSAGRI] AS [POWRSAGRI], 
+    [StateInformation].[PSDUSAS] AS [PSDUSAS], 
+    [StateInformation].[PSDUWOM] AS [PSDUWOM], 
+    [StateInformation].[PSASAS1] AS [PSASAS1], 
+    [StateInformation].[PSAWOM1] AS [PSAWOM1], 
+    [StateInformation].[POWRSCOMM] AS [POWRSCOMM], 
+    [StateInformation].[PSAWOM2] AS [PSAWOM2], 
+    [StateInformation].[PSCSAS2] AS [PSCSAS2], 
+    [StateInformation].[PSFAU] AS [PSFAU], 
+    [StateInformation].[AGRICOMM1] AS [AGRICOMM1], 
+    [StateInformation].[PSUSAS] AS [PSUSAS], 
+    [StateInformation].[PSUSOM] AS [PSUSOM], 
+    [StateInformation].[MCF] AS [MCF], 
+    [StateInformation].[HCF] AS [HCF], 
+    [StateInformation].[AGRICOMM2] AS [AGRICOMM2], 
+    [StateInformation].[MCS] AS [MCS], 
+    [StateInformation].[HCS] AS [HCS], 
+    [StateInformation].[AGRICOMM3] AS [AGRICOMM3], 
+    [StateInformation].[MCT] AS [MCT], 
+    [StateInformation].[HCT] AS [HCT], 
+    [StateInformation].[FORESTAREA] AS [FORESTAREA], 
+    [StateInformation].[AREANONAG] AS [AREANONAG], 
+    [StateInformation].[BAUNCULTAR] AS [BAUNCULTAR], 
+    [StateInformation].[PPASTURGZ] AS [PPASTURGZ], 
+    [StateInformation].[MSTREECROP] AS [MSTREECROP], 
+    [StateInformation].[CULWSTLAND] AS [CULWSTLAND], 
+    [StateInformation].[CURRNTFALO] AS [CURRNTFALO], 
+    [StateInformation].[FALOLND] AS [FALOLND], 
+    [StateInformation].[ARIRRIBYSO] AS [ARIRRIBYSO], 
+    [StateInformation].[NETARSOWN] AS [NETARSOWN], 
+    [StateInformation].[TTLUNIRRIG] AS [TTLUNIRRIG], 
+    [StateInformation].[CANALAREA] AS [CANALAREA], 
+    [StateInformation].[WELLAREA] AS [WELLAREA], 
+    [StateInformation].[TANKLAKEAR] AS [TANKLAKEAR], 
+    [StateInformation].[WATERFALAR] AS [WATERFALAR], 
+    [StateInformation].[OTRSOURCE] AS [OTRSOURCE], 
+    [StateInformation].[NRTOWNNAME] AS [NRTOWNNAME], 
+    [StateInformation].[NRTWNDIST] AS [NRTWNDIST]
+    FROM [dksa].[StateInformation] AS [StateInformation]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Structure" EntityType="Self.Structure" store:Type="Tables" store:Schema="dksa">
+      <DefiningQuery>SELECT 
+    [Structure].[ID1] AS [ID1], 
+    [Structure].[ID] AS [ID], 
+    [Structure].[Remarks] AS [Remarks], 
+    [Structure].[Structure] AS [Structure]
+    FROM [dksa].[Structure] AS [Structure]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_CropResultInfo_CropInfo" Association="Self.FK_CropResultInfo_CropInfo">
+      <End Role="CropInfo" EntitySet="CropInfo" />
+      <End Role="CropResultInfo" EntitySet="CropResultInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DelerAddInfo_DelerInfo" Association="Self.FK_DelerAddInfo_DelerInfo">
+      <End Role="DelerInfo" EntitySet="DelerInfo" />
+      <End Role="DelerAddInfo" EntitySet="DelerAddInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DelerAddInfo_DistrictInfo" Association="Self.FK_DelerAddInfo_DistrictInfo">
+      <End Role="DistrictInfo" EntitySet="DistrictInfo" />
+      <End Role="DelerAddInfo" EntitySet="DelerAddInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DelerAddInfo_DistrictInfo_DistrictID" Association="Self.FK_DelerAddInfo_DistrictInfo_DistrictID">
+      <End Role="DistrictInfo" EntitySet="DistrictInfo" />
+      <End Role="DelerAddInfo" EntitySet="DelerAddInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DelerAddInfo_DistrictInfo1" Association="Self.FK_DelerAddInfo_DistrictInfo1">
+      <End Role="DistrictInfo" EntitySet="DistrictInfo" />
+      <End Role="DelerAddInfo" EntitySet="DelerAddInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DelerAddInfo_StateInfo" Association="Self.FK_DelerAddInfo_StateInfo">
+      <End Role="StateInfo" EntitySet="StateInfo" />
+      <End Role="DelerAddInfo" EntitySet="DelerAddInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DelerAddInfo_StateInfo1" Association="Self.FK_DelerAddInfo_StateInfo1">
+      <End Role="StateInfo" EntitySet="StateInfo" />
+      <End Role="DelerAddInfo" EntitySet="DelerAddInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DelerAddInfo_StateInfo2" Association="Self.FK_DelerAddInfo_StateInfo2">
+      <End Role="StateInfo" EntitySet="StateInfo" />
+      <End Role="DelerAddInfo" EntitySet="DelerAddInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DelerBankInfo_DelerInfo" Association="Self.FK_DelerBankInfo_DelerInfo">
+      <End Role="DelerInfo" EntitySet="DelerInfo" />
+      <End Role="DelerBankInfo" EntitySet="DelerBankInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DelerInfo_DelerType" Association="Self.FK_DelerInfo_DelerType">
+      <End Role="DelerType" EntitySet="DelerType" />
+      <End Role="DelerInfo" EntitySet="DelerInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DelerInfo_UserInformation" Association="Self.FK_DelerInfo_UserInformation">
+      <End Role="UserInformation" EntitySet="UserInformation" />
+      <End Role="DelerInfo" EntitySet="DelerInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DelerInfo_UserInformation1" Association="Self.FK_DelerInfo_UserInformation1">
+      <End Role="UserInformation" EntitySet="UserInformation" />
+      <End Role="DelerInfo" EntitySet="DelerInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DelerLicencesInfo_DelerInfo" Association="Self.FK_DelerLicencesInfo_DelerInfo">
+      <End Role="DelerInfo" EntitySet="DelerInfo" />
+      <End Role="DelerLicencesInfo" EntitySet="DelerLicencesInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DelerPartenarInfo_DelerInfo" Association="Self.FK_DelerPartenarInfo_DelerInfo">
+      <End Role="DelerInfo" EntitySet="DelerInfo" />
+      <End Role="DelerPartenarInfo" EntitySet="DelerPartenarInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAaddressDetail_DistrictInfo" Association="Self.FK_FAaddressDetail_DistrictInfo">
+      <End Role="DistrictInfo" EntitySet="DistrictInfo" />
+      <End Role="FAaddressDetail" EntitySet="FAaddressDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAaddressDetail_FAdetail1" Association="Self.FK_FAaddressDetail_FAdetail1">
+      <End Role="FAdetail" EntitySet="FAdetail" />
+      <End Role="FAaddressDetail" EntitySet="FAaddressDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAaddressDetail_PocketInfo" Association="Self.FK_FAaddressDetail_PocketInfo">
+      <End Role="PocketInfo" EntitySet="PocketInfo" />
+      <End Role="FAaddressDetail" EntitySet="FAaddressDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAaddressDetail_StateInfo" Association="Self.FK_FAaddressDetail_StateInfo">
+      <End Role="StateInfo" EntitySet="StateInfo" />
+      <End Role="FAaddressDetail" EntitySet="FAaddressDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAaddressDetail_SubDistrictInfo" Association="Self.FK_FAaddressDetail_SubDistrictInfo">
+      <End Role="SubDistrictInfo" EntitySet="SubDistrictInfo" />
+      <End Role="FAaddressDetail" EntitySet="FAaddressDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAaddressDetail_VillageInfo" Association="Self.FK_FAaddressDetail_VillageInfo">
+      <End Role="VillageInfo" EntitySet="VillageInfo" />
+      <End Role="FAaddressDetail" EntitySet="FAaddressDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAapprovals_FAapprovedby" Association="Self.FK_FAapprovals_FAapprovedby">
+      <End Role="FAapprovedBy" EntitySet="FAapprovedBy" />
+      <End Role="FAapprovals" EntitySet="FAapprovals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAapprovals_FAdetail" Association="Self.FK_FAapprovals_FAdetail">
+      <End Role="FAdetail" EntitySet="FAdetail" />
+      <End Role="FAapprovals" EntitySet="FAapprovals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAdetail_FAdesignation" Association="Self.FK_FAdetail_FAdesignation">
+      <End Role="FAdesignation" EntitySet="FAdesignation" />
+      <End Role="FAdetail" EntitySet="FAdetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAdetail_FAStatus" Association="Self.FK_FAdetail_FAStatus">
+      <End Role="FAStatus" EntitySet="FAStatus" />
+      <End Role="FAdetail" EntitySet="FAdetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAeducationDetail_FAeducationDetail" Association="Self.FK_FAeducationDetail_FAeducationDetail">
+      <End Role="FAdetail" EntitySet="FAdetail" />
+      <End Role="FAeducationDetail" EntitySet="FAeducationDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAexperianceDetail_FAdetail" Association="Self.FK_FAexperianceDetail_FAdetail">
+      <End Role="FAdetail" EntitySet="FAdetail" />
+      <End Role="FAexperianceDetail" EntitySet="FAexperianceDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAexperianceDetail_FAPaymentAgency" Association="Self.FK_FAexperianceDetail_FAPaymentAgency">
+      <End Role="FApaymentAgency" EntitySet="FApaymentAgency" />
+      <End Role="FAexperianceDetail" EntitySet="FAexperianceDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerConsumptionMapping_FarmerConsumption" Association="Self.FK_FarmerConsumptionMapping_FarmerConsumption">
+      <End Role="FarmerConsumption" EntitySet="FarmerConsumption" />
+      <End Role="FarmerConsumptionMapping" EntitySet="FarmerConsumptionMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerConsumptionMapping_FarmerDetail" Association="Self.FK_FarmerConsumptionMapping_FarmerDetail">
+      <End Role="FarmerDetail" EntitySet="FarmerDetail" />
+      <End Role="FarmerConsumptionMapping" EntitySet="FarmerConsumptionMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerCropsMapping_CropInfo" Association="Self.FK_FarmerCropsMapping_CropInfo">
+      <End Role="CropInfo" EntitySet="CropInfo" />
+      <End Role="FarmerCropsMapping" EntitySet="FarmerCropsMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerCropsMapping_FarmerDetail" Association="Self.FK_FarmerCropsMapping_FarmerDetail">
+      <End Role="FarmerDetail" EntitySet="FarmerDetail" />
+      <End Role="FarmerCropsMapping" EntitySet="FarmerCropsMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerDealerMapping_DelerInfo" Association="Self.FK_FarmerDealerMapping_DelerInfo">
+      <End Role="DelerInfo" EntitySet="DelerInfo" />
+      <End Role="FarmerDealerMapping" EntitySet="FarmerDealerMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerDealerMapping_FarmerDetail" Association="Self.FK_FarmerDealerMapping_FarmerDetail">
+      <End Role="FarmerDetail" EntitySet="FarmerDetail" />
+      <End Role="FarmerDealerMapping" EntitySet="FarmerDealerMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerDetail_DealerDetail" Association="Self.FK_FarmerDetail_DealerDetail">
+      <End Role="DealerDetail" EntitySet="DealerDetail" />
+      <End Role="FarmerDetail" EntitySet="FarmerDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerDetail_FarmerTypeDetail" Association="Self.FK_FarmerDetail_FarmerTypeDetail">
+      <End Role="FarmerTypeDetail" EntitySet="FarmerTypeDetail" />
+      <End Role="FarmerDetail" EntitySet="FarmerDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerInputSourceMapping_DelerInfo" Association="Self.FK_FarmerInputSourceMapping_DelerInfo">
+      <End Role="DelerInfo" EntitySet="DelerInfo" />
+      <End Role="FarmerInputSourceMapping" EntitySet="FarmerInputSourceMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerInputSourceMapping_FarmerDetail" Association="Self.FK_FarmerInputSourceMapping_FarmerDetail">
+      <End Role="FarmerDetail" EntitySet="FarmerDetail" />
+      <End Role="FarmerInputSourceMapping" EntitySet="FarmerInputSourceMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerInputSourceMapping_InputSources" Association="Self.FK_FarmerInputSourceMapping_InputSources">
+      <End Role="InputSources" EntitySet="InputSources" />
+      <End Role="FarmerInputSourceMapping" EntitySet="FarmerInputSourceMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerInputSourceMapping_VillageInfo" Association="Self.FK_FarmerInputSourceMapping_VillageInfo">
+      <End Role="VillageInfo" EntitySet="VillageInfo" />
+      <End Role="FarmerInputSourceMapping" EntitySet="FarmerInputSourceMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerLandMapping_FarmerDetail" Association="Self.FK_FarmerLandMapping_FarmerDetail">
+      <End Role="FarmerDetail" EntitySet="FarmerDetail" />
+      <End Role="FarmerLandMapping" EntitySet="FarmerLandMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerLandMapping_FarmerLandType" Association="Self.FK_FarmerLandMapping_FarmerLandType">
+      <End Role="FarmerLandType" EntitySet="FarmerLandType" />
+      <End Role="FarmerLandMapping" EntitySet="FarmerLandMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerLandMapping_LandOwnershipType" Association="Self.FK_FarmerLandMapping_LandOwnershipType">
+      <End Role="LandOwnershipType" EntitySet="LandOwnershipType" />
+      <End Role="FarmerLandMapping" EntitySet="FarmerLandMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerPesticesMapping_FarmerDetail" Association="Self.FK_FarmerPesticesMapping_FarmerDetail">
+      <End Role="FarmerDetail" EntitySet="FarmerDetail" />
+      <End Role="FarmerPesticesMapping" EntitySet="FarmerPesticesMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerPesticesMapping_Pesticides" Association="Self.FK_FarmerPesticesMapping_Pesticides">
+      <End Role="FarmerPesticideType" EntitySet="FarmerPesticideType" />
+      <End Role="FarmerPesticesMapping" EntitySet="FarmerPesticesMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FarmerPesticesMapping_PestiesUnit" Association="Self.FK_FarmerPesticesMapping_PestiesUnit">
+      <End Role="PestiesUnit" EntitySet="PestiesUnit" />
+      <End Role="FarmerPesticesMapping" EntitySet="FarmerPesticesMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAtargetDetail_DealerDetail" Association="Self.FK_FAtargetDetail_DealerDetail">
+      <End Role="DealerDetail" EntitySet="DealerDetail" />
+      <End Role="FAtargetDetail" EntitySet="FAtargetDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAtargetDetail_FaDetail" Association="Self.FK_FAtargetDetail_FaDetail">
+      <End Role="FAdetail" EntitySet="FAdetail" />
+      <End Role="FAtargetDetail" EntitySet="FAtargetDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAtargetVillageMappings_CropInfo" Association="Self.FK_FAtargetVillageMappings_CropInfo">
+      <End Role="CropInfo" EntitySet="CropInfo" />
+      <End Role="FAtargetVillageMappings" EntitySet="FAtargetVillageMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAtargetVillageMappings_FAtargetDetail" Association="Self.FK_FAtargetVillageMappings_FAtargetDetail">
+      <End Role="FAtargetDetail" EntitySet="FAtargetDetail" />
+      <End Role="FAtargetVillageMappings" EntitySet="FAtargetVillageMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAuploadedDocumentDetail_FAdetail" Association="Self.FK_FAuploadedDocumentDetail_FAdetail">
+      <End Role="FAdetail" EntitySet="FAdetail" />
+      <End Role="FAuploadedDocumentDetail" EntitySet="FAuploadedDocumentDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAuploadedDocumentDetail_FaDocumentType" Association="Self.FK_FAuploadedDocumentDetail_FaDocumentType">
+      <End Role="FAdocumentType" EntitySet="FAdocumentType" />
+      <End Role="FAuploadedDocumentDetail" EntitySet="FAuploadedDocumentDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PesticesInfo_FarmerPesticideType" Association="Self.FK_PesticesInfo_FarmerPesticideType">
+      <End Role="FarmerPesticideType" EntitySet="FarmerPesticideType" />
+      <End Role="PesticesInfo" EntitySet="PesticesInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pesticides_FarmerPesticideType" Association="Self.FK_Pesticides_FarmerPesticideType">
+      <End Role="FarmerPesticideType" EntitySet="FarmerPesticideType" />
+      <End Role="Pesticides" EntitySet="Pesticides" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PocketCropMapping_CropInfo" Association="Self.FK_PocketCropMapping_CropInfo">
+      <End Role="CropInfo" EntitySet="CropInfo" />
+      <End Role="PocketCropMapping" EntitySet="PocketCropMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PocketCropMapping_PocketInfo" Association="Self.FK_PocketCropMapping_PocketInfo">
+      <End Role="PocketInfo" EntitySet="PocketInfo" />
+      <End Role="PocketCropMapping" EntitySet="PocketCropMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PocketFertilizerMapping_Fertilizers" Association="Self.FK_PocketFertilizerMapping_Fertilizers">
+      <End Role="FertilizerInfo" EntitySet="FertilizerInfo" />
+      <End Role="PocketFertilizerMapping" EntitySet="PocketFertilizerMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PocketFertilizerMapping_PocketInfo" Association="Self.FK_PocketFertilizerMapping_PocketInfo">
+      <End Role="PocketInfo" EntitySet="PocketInfo" />
+      <End Role="PocketFertilizerMapping" EntitySet="PocketFertilizerMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PocketInfo_DistrictInfo" Association="Self.FK_PocketInfo_DistrictInfo">
+      <End Role="DistrictInfo" EntitySet="DistrictInfo" />
+      <End Role="PocketInfo" EntitySet="PocketInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PocketInfo_PocketStatus" Association="Self.FK_PocketInfo_PocketStatus">
+      <End Role="PocketStatus" EntitySet="PocketStatus" />
+      <End Role="PocketInfo" EntitySet="PocketInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PocketInfo_StateInfo" Association="Self.FK_PocketInfo_StateInfo">
+      <End Role="StateInfo" EntitySet="StateInfo" />
+      <End Role="PocketInfo" EntitySet="PocketInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PocketVillageMapping_PocketInfo" Association="Self.FK_PocketVillageMapping_PocketInfo">
+      <End Role="PocketInfo" EntitySet="PocketInfo" />
+      <End Role="PocketVillageMapping" EntitySet="PocketVillageMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PocketVillageMapping_SubDistrictInfo" Association="Self.FK_PocketVillageMapping_SubDistrictInfo">
+      <End Role="SubDistrictInfo" EntitySet="SubDistrictInfo" />
+      <End Role="PocketVillageMapping" EntitySet="PocketVillageMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PocketVillageMapping_VillageInfo" Association="Self.FK_PocketVillageMapping_VillageInfo">
+      <End Role="VillageInfo" EntitySet="VillageInfo" />
+      <End Role="PocketVillageMapping" EntitySet="PocketVillageMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StateID_District_StateInfo" Association="Self.FK_StateID_District_StateInfo">
+      <End Role="StateInfo" EntitySet="StateInfo" />
+      <End Role="DistrictInfo" EntitySet="DistrictInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubDistrictInto_DistrictInfo" Association="Self.FK_SubDistrictInto_DistrictInfo">
+      <End Role="DistrictInfo" EntitySet="DistrictInfo" />
+      <End Role="SubDistrictInfo" EntitySet="SubDistrictInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubDistrictInto_StateInfo" Association="Self.FK_SubDistrictInto_StateInfo">
+      <End Role="StateInfo" EntitySet="StateInfo" />
+      <End Role="SubDistrictInfo" EntitySet="SubDistrictInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserGroupInfo_GroupInfo" Association="Self.FK_UserGroupInfo_GroupInfo">
+      <End Role="GroupInfo" EntitySet="GroupInfo" />
+      <End Role="UserGroupInfo" EntitySet="UserGroupInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserInformation_UserType" Association="Self.FK_UserInformation_UserType">
+      <End Role="UserType" EntitySet="UserType" />
+      <End Role="UserInformation" EntitySet="UserInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTypeID_UserGroupInfo_UserType" Association="Self.FK_UserTypeID_UserGroupInfo_UserType">
+      <End Role="UserType" EntitySet="UserType" />
+      <End Role="UserGroupInfo" EntitySet="UserGroupInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VillageInfo_DistrictInfo" Association="Self.FK_VillageInfo_DistrictInfo">
+      <End Role="DistrictInfo" EntitySet="DistrictInfo" />
+      <End Role="VillageInfo" EntitySet="VillageInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VillageInfo_StateInfo" Association="Self.FK_VillageInfo_StateInfo">
+      <End Role="StateInfo" EntitySet="StateInfo" />
+      <End Role="VillageInfo" EntitySet="VillageInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VillageInfo_SubDistrictInto" Association="Self.FK_VillageInfo_SubDistrictInto">
+      <End Role="SubDistrictInfo" EntitySet="SubDistrictInfo" />
+      <End Role="VillageInfo" EntitySet="VillageInfo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

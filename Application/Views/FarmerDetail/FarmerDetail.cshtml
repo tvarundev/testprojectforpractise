@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BusinessEntities.EntityClasses.FarmerDetailEntities>
+
+@{
+    ViewBag.Title = "Farmer Detail";
+}
+
+<h2>Farmer Detail</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddFarmerDetail")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            Form Number
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Mobile No
+        </th>
+        <th>
+            Enroll Date
+        </th>
+        
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+           
+
+
+            <td>
+                @Html.ActionLink("Edit", "UpdateFarmerDetail", new { id = item.Id }) |
+                @Html.ActionLink("Details", "SelectedFarmerDetail", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteFarmerDetail", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

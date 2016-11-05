@@ -1,0 +1,85 @@
+﻿@using Application.Common
+@using System.Web.Mvc
+@model BusinessEntities.EntityClasses.FAtargetVillageMappingEntities
+@{
+    List<SelectListItem> yearList = CommonOperations.GetDropdownValueForExperienceYears();
+    List<SelectListItem> dealerList = ViewBag.dealerList;
+    List<SelectListItem> villageList = ViewBag.villageList;
+    List<SelectListItem> cropList = ViewBag.cropList;
+    bool IsDisableMode = ViewBag.isInDisableMode;
+}
+    <tr class="targetMappingBeginRow"></tr>
+    <tr class="rowSpacing"></tr>
+    <tr>
+        <td>
+            <h5><b>Target Crop Detail:</b></h5>
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td class="hideForId">
+            <input type="text" id="txttrgtMappingId" value="@Model.Id" />
+        </td>
+        <td class="tdWidth">
+            Crop Name <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth" fieldname="cropName">
+            @Html.DropDownListFor(model => model.CropId, cropList, ConfigSettings.DefaultDropDownText, IsDisableMode == false ? new { @class = "form-control", @id = "ddlCropId" } : (object)new { @class = "form-control", @id = "ddlCropId", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.CropId, "", new { @class = "text-danger" })
+        </td>
+        <td class="tdrowSpacingLarge"></td>
+        <td class="tdWidth">
+            From Date <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth" fieldname="fromDate">
+            @Html.TextBoxFor(model => model.FromDate,"{0:yyyy-MM-dd}", IsDisableMode == false ? new { @class = "form-control datPeakerWidth", @placeholder = "From Date", @type = "date" } : (object)new { @class = "form-control datPeakerWidth", @placeholder = "From Date", @type = "date", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.FromDate, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr class="rowSpacing"></tr>
+    <tr>
+        <td class="tdWidth">
+            To Date <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth" fieldname="toDate">
+            @Html.TextBoxFor(model => model.ToDate,"{0:yyyy-MM-dd}", IsDisableMode == false ? new { @class = "form-control datPeakerWidth", @placeholder = "To Date", @type = "date" } : (object)new { @class = "form-control datPeakerWidth", @placeholder = "To Date", @type = "date", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.ToDate, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr class="rowSpacing"></tr>
+    <tr>
+        <td class="tdWidth">
+            No. of Samples <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth" fieldname="samples">
+            @Html.TextBoxFor(model => model.NoOfSamples, IsDisableMode == false ? new { @class = "form-control ", @placeholder = "Samples",   @type = "number"} : (object)new { @class = "form-control ", @placeholder = "Samples", @type = "number", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.NoOfSamples, "", new { @class = "text-danger" })
+        </td>
+        <td class="tdrowSpacingLarge"></td>
+        <td class="tdWidth">
+            No. of Demo <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth" fieldname="demos">
+            @Html.TextBoxFor(model => model.NoOfDemos, IsDisableMode == false ? new { @class = "form-control ", @placeholder = "Demos" , @type = "number"} : (object)new { @class = "form-control ", @placeholder = "Demos", @type = "number", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.NoOfDemos, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr class="rowSpacing"></tr>
+    <tr >
+        <td class="tdWidth">
+            No. of Farmer Meetings <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth" fieldname="meetings">
+            @Html.TextBoxFor(model => model.NoOffarmerMeetings, IsDisableMode == false ? new { @class = "form-control ", @placeholder = "Meetings" , @type = "number"} : (object)new { @class = "form-control ", @placeholder = "Meetings", @type = "number", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.NoOffarmerMeetings, "", new { @class = "text-danger" })
+        </td>
+        <td class="tdrowSpacingLarge"></td>
+        <td class="tdWidth">
+            No. of Prescriptions <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth" fieldname="prescriptions">
+            @Html.TextBoxFor(model => model.NoOfPrescriptions, IsDisableMode == false ? new { @class = "form-control ", @placeholder = "Prescriptions", @type = "number" } : (object)new { @class = "form-control ", @placeholder = "Prescriptions", @type = "number", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.NoOfPrescriptions, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+<tr class="targetMappingEndRow"></tr>

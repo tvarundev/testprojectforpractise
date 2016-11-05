@@ -1,0 +1,470 @@
+﻿@using BusinessEntities.EntityClasses;
+@using BusinessEntities.Enums;
+@using Application.Common
+@model Application.Models.FAdetailModel
+@{
+    ViewBag.Title = "Add FA Detail";
+}
+@{
+    List<SelectListItem> dealerList = CommonOperations.BindDropdwon<DealerDetailEntities>(Model.faDetailPageUIvalues.DealerList, "id", "dealerName");
+    List<SelectListItem> pocketList = CommonOperations.BindDropdwon<PocketInfoEntities>(Model.faDetailPageUIvalues.PocketList, "PocketID", "PocketName");
+    List<SelectListItem> pocketSrList = CommonOperations.BindDropdwon<PocketInfoEntities>(Model.faDetailPageUIvalues.PocketList, "PocketID", "PocketName");
+    IEnumerable<SelectListItem> faDesignationListForDropdown = CommonOperations.BindDropdwon<FAdesignationEntities>(Model.faDetailPageUIvalues.DesignationList, "Id", "Designation");
+    IEnumerable<SelectListItem> faDocumentTypeListForDropdown = CommonOperations.BindDropdwon<FAdocumentTypeEntities>(Model.faDetailPageUIvalues.DocumentTypeList, "Id", "DocumentType");
+    IEnumerable<SelectListItem> faDistrictListForDropdown = CommonOperations.BindDropdwon<DistrictInfoEntities>(Model.faDetailPageUIvalues.DistrictList, "DistID", "DistrictName");
+    IEnumerable<SelectListItem> faSubdistrictListForDropdown = CommonOperations.BindDropdwon<SubDistrictInfoEntities>(Model.faDetailPageUIvalues.subDistrictList, "SubDistID", "SubDistrictName");
+    IEnumerable<SelectListItem> faVillageListForDropdown = CommonOperations.BindDropdwon<VillageInfoEntities>(Model.faDetailPageUIvalues.VillageList, "VillageID", "VILLAGE");
+    IEnumerable<SelectListItem> faApprovedByListForDropdown = CommonOperations.BindDropdwon<FAapprovedByEntities>(Model.faDetailPageUIvalues.approvedByList, "Id", "ApprovedBy");
+    IEnumerable<SelectListItem> faExperienceListForDropdown = CommonOperations.GetDropdownValueForExperience();
+    IEnumerable<SelectListItem> faStateListForDropDown = CommonOperations.BindDropdwon<StateInfoEntities>(Model.faDetailPageUIvalues.stateList, "StateID", "StateName");
+    ViewBag.paymentAgencyList = CommonOperations.BindDropdwon<FApaymentAgencyEntities>(Model.faDetailPageUIvalues.PaymentAgencyList,"Id", "PaymentAgency");
+    List<SelectListItem> FAstatusList = CommonOperations.BindDropdwon<FAstatusEntities>(Model.faDetailPageUIvalues.FAstatusList, "Id", "FAstatus");
+    ViewBag.cropList = CommonOperations.BindDropdwon<CropInfoEntities>(Model.faDetailPageUIvalues.CropList, "CropID", "CropName");
+    ViewBag.dealerList = dealerList;
+    ViewBag.villageList = faVillageListForDropdown;
+    ViewBag.isInDisableMode = Model.isInDetailMode;
+    Model.faDetailEntities.BirthDate = DateTime.Now;
+}
+@Styles.Render("~/Content/ComonOAcss")
+<h2>Field Assistant Registration Form</h2>
+<br />
+@*@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "faDetailForm" }))*@
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "faDetailForm" }))
+{
+    <table border="0" class="faDetailMainTable">
+        <tr class="maintr">
+            <td class="mainTdWidth">
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            FA Name <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.TextBoxFor(model => model.faDetailEntities.FirstName, Model.isInDetailMode == false ? new { @class = "form-control", @placeholder = "First Name" } : (object)new { @class = "form-control", @placeholder = "First Name", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.FirstName, "", new { @class = "text-danger" })
+                        </td>
+                        <td class="tdrowSpacingLarge"></td>
+                        <td class="tdWidth">
+                            @Html.TextBoxFor(model => model.faDetailEntities.MiddleName, Model.isInDetailMode == false ? new { @class = "form-control", @placeholder = "Middle Name" } : (object)new { @class = "form-control", @placeholder = "Middle Name", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.MiddleName, "", new { @class = "text-danger" })
+                        </td>
+                        <td class="tdrowSpacingLarge"></td>
+                        <td class="tdWidth">
+                            @Html.TextBoxFor(model => model.faDetailEntities.LastName, Model.isInDetailMode == false ? new { @class = "form-control", @placeholder = "Last Name" } : (object)new { @class = "form-control", @placeholder = "Last Name", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.LastName, "", new { @class = "text-danger" })
+                        </td>
+                        <td class="hideForId">
+                            @Html.TextBoxFor(model => model.faDetailEntities.Id)
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            FA Designation <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.DropDownListFor(model => model.faDetailEntities.FAdesignationId, faDesignationListForDropdown, "select", Model.isInDetailMode == false ? new { @class = "form-control", @id = "ddlFarmerType" } : (object)new { @class = "form-control", @id = "ddlFarmerType", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.FAdesignationId, "", new { @class = "text-danger" })
+                        </td>
+                        <td class="tdrowSpacingLarge"></td>
+                        <td class="tdWidth">
+                            Registration Date <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.TextBoxFor(model => model.faDetailEntities.EnrollDate, "{0:yyyy-MM-dd}", Model.isInDetailMode == false ? new { @class = "form-control datPeakerWidth", @type = "date" } : (object)new { @class = "form-control datPeakerWidth", @placeholder = "Select Date", @type = "date", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.EnrollDate, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Address <span class="text-danger">*</span> :
+                        </td>
+                        <td class="hideForId">
+                            @Html.TextBoxFor(model => model.faDetailEntities.AddressDetailEntities.Id)
+                        </td>
+                        <td class="tdWidth">
+                            @Html.TextBoxFor(model => model.faDetailEntities.AddressDetailEntities.Address, Model.isInDetailMode == false ? new { @class = "form-control", @placeholder = "Address" } : (object)new { @class = "form-control", @placeholder = "Address", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.AddressDetailEntities.Address, "", new { @class = "text-danger" })
+                        </td>
+                        <td class="tdrowSpacingLarge"></td>
+                        <td class="tdWidth">
+                            Pin Code <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.TextBoxFor(model => model.faDetailEntities.AddressDetailEntities.Pincode, Model.isInDetailMode == false ? new { @class = "form-control", @placeholder = "Pin Code", @type = "number" } : (object)new { @class = "form-control", @placeholder = "Pin Code", @type = "number", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.AddressDetailEntities.Pincode, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Birth Date <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.TextBoxFor(model => model.faDetailEntities.BirthDate, "{0:yyyy-MM-dd}", Model.isInDetailMode == false ? new { @class = "form-control datepicker datPeakerWidth", @placeholder = "Select Date", @type = "date" } : (object)new { @class = "form-control datepicker datPeakerWidth", @placeholder = "Select Date", @type = "date", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.BirthDate, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            State <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.DropDownListFor(model => model.faDetailEntities.AddressDetailEntities.StateId, faStateListForDropDown, ConfigSettings.DefaultDropDownText, Model.isInDetailMode == false ? new { @class = "form-control", @id = "ddlState" } : (object)new { @class = "form-control", @id = "ddlState", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.AddressDetailEntities.StateId, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            District <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.DropDownListFor(model => model.faDetailEntities.AddressDetailEntities.District, faDistrictListForDropdown, ConfigSettings.DefaultDropDownText, Model.isInDetailMode == false ? new { @class = "form-control", @id = "ddlDistrict" } : (object)new { @class = "form-control", @id = "ddlDistrict", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.AddressDetailEntities.District, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Pocket <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.DropDownListFor(model => model.faDetailEntities.AddressDetailEntities.PocketId, pocketList, ConfigSettings.DefaultDropDownText, Model.isInDetailMode == false ? new { @class = "form-control", @id = "ddlPocket" } : (object)new { @class = "form-control", @id = "ddlPocket", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.AddressDetailEntities.PocketId, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            SubDistrict <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.DropDownListFor(model => model.faDetailEntities.AddressDetailEntities.SubDistrictId, faSubdistrictListForDropdown, ConfigSettings.DefaultDropDownText, Model.isInDetailMode == false ? new { @class = "form-control", @id = "ddlSubDistrict" } : (object)new { @class = "form-control", @id = "ddlSubDistrict", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.AddressDetailEntities.SubDistrictId, "", new { @class = "text-danger" })
+                        </td>
+                        <td class="tdrowSpacingLarge"></td>
+                        <td class="tdWidth">
+                            Village <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.DropDownListFor(model => model.faDetailEntities.AddressDetailEntities.Village, faVillageListForDropdown, ConfigSettings.DefaultDropDownText, Model.isInDetailMode == false ? new { @class = "form-control", @id = "ddlVillage" } : (object)new { @class = "form-control", @id = "ddlVillage", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.AddressDetailEntities.Village, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Contact No(STD) :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.TextBoxFor(model => model.faDetailEntities.AddressDetailEntities.ContactNo, Model.isInDetailMode == false ? new { @class = "form-control", @placeholder = "Contact No", @type = "number" } : (object)new { @class = "form-control", @placeholder = "Contact No", @type = "number", @disabled = "disabled" })
+                        </td>
+                        <td class="tdrowSpacingLarge"></td>
+                        <td class="tdWidth">
+                            Mobile No <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.TextBoxFor(model => model.faDetailEntities.AddressDetailEntities.MobileNo, Model.isInDetailMode == false ? new { @class = "form-control", @placeholder = "Mobile No", @type = "number" } : (object)new { @class = "form-control", @placeholder = "Mobile No", @type = "number", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.AddressDetailEntities.MobileNo, "", new { @class = "text-danger" })
+                        </td>
+                        <td class="tdrowSpacingLarge"></td>
+                        <td class="tdWidth">
+                            Email <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.TextBoxFor(model => model.faDetailEntities.AddressDetailEntities.EmailId, Model.isInDetailMode == false ? new { @class = "form-control", @placeholder = "Email" } : (object)new { @class = "form-control", @placeholder = "Email", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.AddressDetailEntities.EmailId, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr class="expDropdownTr">
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Experience <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.DropDownListFor(model => model.faDetailEntities.IsExperienced, faExperienceListForDropdown, ConfigSettings.DefaultDropDownText, Model.isInDetailMode == false ? new { @class = "form-control", @id = "ddlExperience" } : (object)new { @class = "form-control", @id = "ddlExperience", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.IsExperienced, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        @foreach (var faExperience in Model.faDetailEntities.ExperienceDetailEntityList)
+        {
+            <tr class="rowSpacing"></tr>
+            <tr class="experienceDetailTR">
+                <td>
+                    @Html.Partial("~/Views/FAdetail/_FAexperienceDetail.cshtml", faExperience)
+
+                </td>
+            </tr>
+        }
+        @if (!Model.isInDetailMode)
+        {
+            <tr class="rowSpacing"></tr>
+            <tr>
+                <td>
+                    <input type="button" id="btnAddExperience" value="Add Experience" />
+                    <input type="button" id="btnRemoveExperience" value="Remove Experience" />
+                </td>
+            </tr>
+        }
+        @foreach (var faEducation in Model.faDetailEntities.EducationDetailEntityList)
+        {
+            <tr class="rowSpacing"></tr>
+            <tr class="educationDetailTR">
+                <td>
+                    @Html.Partial("~/Views/FAdetail/_FAeducationDetail.cshtml", faEducation)
+                </td>
+            </tr>
+        }
+        @if (!Model.isInDetailMode)
+        {
+            <tr class="rowSpacing"></tr>
+            <tr>
+                <td>
+                    <input type="button" id="btnAddEducation" value="Add Education" />
+                    <input type="button" id="btnRemoveEducation" value="Remove Education" />
+                </td>
+            </tr>
+        }
+        @foreach (var faTarget in Model.faDetailEntities.TargetDetailEntityList)
+        {
+            <tr class="rowSpacing"></tr>
+            <tr class="targetDetailTR">
+                <td>
+                    @Html.Partial("~/Views/FAdetail/_FAtargetDetail.cshtml", faTarget)
+                </td>
+            </tr>
+        }
+        <tr class="hideTargetDetailInsertBefore"></tr>
+        @if (!Model.isInDetailMode)
+        {
+            <tr class="rowSpacing"></tr>
+            <tr>
+                <td>
+                    <input type="button" id="btnAddTarget" value="Add Target" />
+                    <input type="button" id="btnRemoveTarget" value="Remove Target" />
+                </td>
+            </tr>
+        }
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <h4><b>Approval Detail:</b></h4>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Approved BY Dealer <span class="text-danger">*</span> :
+                        </td>
+                        <td class="hideForId">
+                            @Html.TextBoxFor(model => model.faDetailEntities.ApprovalEntities.Id)
+                        </td>
+                        <td class="tdWidth">
+                            @Html.DropDownListFor(model => model.faDetailEntities.ApprovalEntities.FAApprovedId, faApprovedByListForDropdown, ConfigSettings.DefaultDropDownText, Model.isInDetailMode == false ? new { @class = "form-control", @id = "ddlApprovalDealer" } : (object)new { @class = "form-control", @id = "ddlApprovalDealer", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.ApprovalEntities.FAApprovedId, "", new { @class = "text-danger" })
+                        </td>
+                        <td class="tdrowSpacingLarge"></td>
+                        <td class="tdWidth">
+                            Pocket SR. <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.DropDownListFor(model => model.faDetailEntities.ApprovalEntities.PocketId, pocketSrList, ConfigSettings.DefaultDropDownText, Model.isInDetailMode == false ? new { @class = "form-control", @id = "ddlApprovalPocket" } : (object)new { @class = "form-control", @id = "ddlApprovalPocket", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.ApprovalEntities.PocketId, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Recommended By <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.TextBoxFor(model => model.faDetailEntities.ApprovalEntities.RecommandedBYSM, Model.isInDetailMode == false ? new { @class = "form-control", @placeholder = "Recommended By" } : (object)new { @class = "form-control", @placeholder = "Recommended By", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.ApprovalEntities.RecommandedBYSM, "", new { @class = "text-danger" })
+                        </td>
+                        <td class="tdrowSpacingLarge"></td>
+                        <td class="tdWidth">
+                            Status <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.DropDownListFor(model => model.faDetailEntities.Status, FAstatusList, ConfigSettings.DefaultDropDownText, Model.isInDetailMode == false ? new { @class = "form-control", @id = "ddlStatus" } : (object)new { @class = "form-control", @id = "ddlStatus", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.faDetailEntities.Status, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr class="rowSpacing"></tr>
+        <tr class="rowSpacing"></tr>
+        @if (Model.ActionType == ActionTypeEnum.Insert || Model.ActionType == ActionTypeEnum.Update)
+        {
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td class="tdWidth"></td>
+                            <td class="tdWidth"></td>
+                            <td class="tdrowSpacingLarge"></td>
+                            <td class="tdWidth">
+                                <input type="button" value="Save Detail" id="btnSave" />
+                            </td>
+                            <td class="tdWidth">
+                                <input type="button" value="Cancel" id="btnCancelAdd" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        }
+        @if (Model.ActionType == ActionTypeEnum.Select)
+        {
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td class="tdWidth"></td>
+                            <td class="tdWidth"></td>
+                            <td class="tdrowSpacingLarge"></td>
+                            <td class="tdWidth">
+                                <input type="button" value="Back" id="btnBack" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="hideExperienceTr">
+        <table id="tempExperienceTbl">
+            <tr class="rowSpacing"></tr>
+            <tr class="experienceDetailTR">
+                <td>
+                    @Html.Partial("~/Views/FAdetail/_FAexperienceDetail.cshtml", new FAexperianceDetailEntities())
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="hideExperienceButtonTr">
+        <table id="tempExperienceBtnTbl">
+            <tr class="rowSpacing"></tr>
+            <tr>
+                <td>
+                    <input type="button" id="btnAddExperience" value="Add Experience" />
+                    <input type="button" id="btnRemoveExperience" value="Remove Experience" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="hideEducationTr">
+        <tr class="rowSpacing"></tr>
+        <tr class="educationDetailTR">
+            <td>
+                @Html.Partial("~/Views/FAdetail/_FAeducationDetail.cshtml", new FAeducationDetailEntities())
+            </td>
+        </tr>
+    </div>
+    <div class="hideTargetTr">
+        <table id="tempTargetTbl">
+            <tr class="rowSpacing"></tr>
+            <tr class="targetDetailTR">
+                <td>
+                    @Html.Partial("~/Views/FAdetail/_FAtargetDetail.cshtml", new FAtargetDetailEntities())
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="hideTargetCropMappingTr">
+        <table id="tempCropMappingTbl">
+            <tr class="targetCropMappingTr">
+                @Html.Partial("~/Views/FAdetail/_FAtargetCropMapping.cshtml", new FAtargetVillageMappingEntities())
+            </tr>
+        </table>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/JqueryPackage")
+    @Scripts.Render("~/bundles/Validation")
+    @Scripts.Render("~/bundles/FAdetail")
+}
+<script type="text/javascript">
+    var allowMaximumExperienceDetailToInsert = @ConfigSettings.AllowMaximumExperienceDetailToInsert;
+    var urlForPostingNewFaData = '@Url.Action("GetNewFAdetail", "FAdetail")'
+    var urlForPostingUpdatedData ='@Url.Action("UpdateFAdetail", "FAdetail")'
+    var actionType = '@Convert.ToString(Model.ActionType)'
+    var urlForRedirectingDetailPage='@Url.Action("FADetail", "FAdetail")';
+    var urlForGetDistrictList='@Url.Action("GetDistrictByStateId", "FAdetail")';
+    var urlForGetDistrictPocketList='@Url.Action("GetPocketByDistrictId", "FAdetail")';
+    var urlForGetPocketSubDistrict='@Url.Action("GetSubDistrictsOfPocket", "FAdetail")';
+    var urlForGetPocketVillage='@Url.Action("GetVillagesOfSubDistrictPocket", "FAdetail")';
+    var defaultDropdownText = '@ConfigSettings.DefaultDropDownText';
+</script>

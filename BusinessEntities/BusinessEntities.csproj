@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5A514934-0C83-4D49-BAD6-28098539DB83}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusinessEntities</RootNamespace>
+    <AssemblyName>BusinessEntities</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EntityClasses\CropInfoEntities.cs" />
+    <Compile Include="EntityClasses\DealerDetailEntities.cs" />
+    <Compile Include="EntityClasses\DealerInfoEntities.cs" />
+    <Compile Include="EntityClasses\DistrictInfoEntities.cs" />
+    <Compile Include="EntityClasses\DropDownTextValueEntities.cs" />
+    <Compile Include="EntityClasses\FAaddressDetailEntities.cs" />
+    <Compile Include="EntityClasses\FAapprovalEntities.cs" />
+    <Compile Include="EntityClasses\FAapprovedByEntities.cs" />
+    <Compile Include="EntityClasses\FAdesignationEntities.cs" />
+    <Compile Include="EntityClasses\FAdetailEntities.cs" />
+    <Compile Include="EntityClasses\FAdocumentTypeEntities.cs" />
+    <Compile Include="EntityClasses\FAeducationDetailEntities.cs" />
+    <Compile Include="EntityClasses\FAexperianceDetailEntities.cs" />
+    <Compile Include="EntityClasses\FApaymentAgencyEntities.cs" />
+    <Compile Include="EntityClasses\FarmerConsumptionEntities.cs" />
+    <Compile Include="EntityClasses\FarmerConsumptionMappingEntities.cs" />
+    <Compile Include="EntityClasses\FarmerCropMappingEntities.cs" />
+    <Compile Include="EntityClasses\FarmerDealerMappingEntities.cs" />
+    <Compile Include="EntityClasses\FarmerDetailEntities.cs" />
+    <Compile Include="EntityClasses\FarmerInputSourceMappingEntities.cs" />
+    <Compile Include="EntityClasses\FarmerLandMappingEntities.cs" />
+    <Compile Include="EntityClasses\FarmerLandTypeEntities.cs" />
+    <Compile Include="EntityClasses\FarmerPesticesMappingEntities.cs" />
+    <Compile Include="EntityClasses\FarmerPesticideTypeEntities.cs" />
+    <Compile Include="EntityClasses\FarmerTypeEntities.cs" />
+    <Compile Include="EntityClasses\FAstatusEntities.cs" />
+    <Compile Include="EntityClasses\FAtargetDetailEntities.cs" />
+    <Compile Include="EntityClasses\FAtargetVillageMappingEntities.cs" />
+    <Compile Include="EntityClasses\FAuploadedDocumentDetailEntities.cs" />
+    <Compile Include="EntityClasses\FertilizerInfoEntities.cs" />
+    <Compile Include="EntityClasses\InputSourceEntities.cs" />
+    <Compile Include="EntityClasses\IrrigationSourceEntities.cs" />
+    <Compile Include="EntityClasses\LandOwnershipTypeEntities.cs" />
+    <Compile Include="EntityClasses\PesticesEntities.cs" />
+    <Compile Include="EntityClasses\PestiesUnitEntity.cs" />
+    <Compile Include="EntityClasses\PocketCropMappingEntities.cs" />
+    <Compile Include="EntityClasses\PocketFertilizerMappingEntities.cs" />
+    <Compile Include="EntityClasses\PocketInfoEntities.cs" />
+    <Compile Include="EntityClasses\PocketStatusEntities.cs" />
+    <Compile Include="EntityClasses\PocketVillageMappingEntities.cs" />
+    <Compile Include="EntityClasses\ProjectExceptionEntities.cs" />
+    <Compile Include="EntityClasses\StateInfoEntities.cs" />
+    <Compile Include="EntityClasses\SubDistrictInfoEntities.cs" />
+    <Compile Include="EntityClasses\UserInformationEntity.cs" />
+    <Compile Include="EntityClasses\UserTypeEntity.cs" />
+    <Compile Include="EntityClasses\VillageInfoEntities.cs" />
+    <Compile Include="Enums\ActionTypeEnum.cs" />
+    <Compile Include="Enums\PocketStatusTypeEnum.cs" />
+    <Compile Include="Enums\ProjectTypeEnum.cs" />
+    <Compile Include="Enums\ServiceControllerNameEnum.cs" />
+    <Compile Include="Enums\SessionKeyTypeEnum.cs" />
+    <Compile Include="Enums\UserType.cs" />
+    <Compile Include="PageUIValues\FAdetailPageUIvalues.cs" />
+    <Compile Include="PageUIValues\FarmerDetailPageUIvalues.cs" />
+    <Compile Include="PageUIValues\PocketPageUIvalues.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

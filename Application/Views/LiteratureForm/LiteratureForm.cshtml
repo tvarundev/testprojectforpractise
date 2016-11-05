@@ -1,0 +1,142 @@
+﻿
+@{
+    ViewBag.Title = "LiteratureForm";
+}
+<style>
+    .mainTdWidth {
+        width: 1000px;
+        border-width: thin;
+        border-color: black;
+    }
+
+    .headerStyle {
+        height: 50px;
+    }
+
+    .tdWidth {
+        width: 150px;
+    }
+
+    .tdWidthForName {
+        width: 50px;
+    }
+
+    .rowSpacing {
+        height: 30px;
+    }
+
+    .tdrowSpacing {
+        width: 30px;
+    }
+
+    .chkrowSpacing {
+        width: 60px;
+    }
+
+    .tdDropdwncontryCode {
+        width: 20px;
+    }
+
+    .ctrlDropdwncontryCode {
+        height: 23px;
+    }
+
+    .ctrltxtcontryCode {
+        width: 120px;
+    }
+
+    .ctrlDropdwnFarmerType {
+        height: 23px;
+        width: 170px;
+    }
+</style>
+
+<h2 class="headerStyle">Literature Form</h2>
+
+<form>
+
+    <table border="0">
+        <tr>
+            <td class="mainTdWidth">
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Literature Name:
+                        </td>
+                        <td class="tdWidth">
+                            <input type="text" id="txtRegistrationNumber" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Literature Type:
+                        </td>
+                        <td class="tdWidth">
+                            <select class="ctrlDropdwnFarmerType" id="ddlLiteratureType">
+                                <option value="LiteratureType1">Literature Type1</option>
+                                <option value="LiteratureType2">LiteratureType2</option>
+                                <option value="LiteratureType3">LiteratureType3</option>
+                            </select>
+                        </td>
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Unique Id:
+                        </td>
+                        <td class="tdWidth">
+                            <input type="number" id="txtUniqueId" />
+                        </td>
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Unique Cost:
+                        </td>
+                        <td class="tdWidth">
+                            <input type="number" id="txtUniqueCost" />
+                        </td>
+
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            <input type="submit" value="Add" />
+                        </td>
+
+                        <td class="tdWidth">
+                            <input type="submit" value="Cancel" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</form>

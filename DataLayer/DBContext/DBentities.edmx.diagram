@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9c966339b99f4dcaaf99492eb01bdbf8" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModel.CropInfo" Width="1.5" PointX="20.25" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.CropResultInfo" Width="1.5" PointX="22.5" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.DealerDetail" Width="1.5" PointX="3" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.DelerAddInfo" Width="1.5" PointX="10.5" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.DelerBankInfo" Width="1.5" PointX="7.5" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.DelerInfo" Width="1.5" PointX="5.25" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.DelerLicencesInfo" Width="1.5" PointX="7.5" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.DelerPartenarInfo" Width="1.5" PointX="7.5" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.DelerType" Width="1.5" PointX="3" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.DistrictInfo" Width="1.5" PointX="8.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FAaddressDetail" Width="1.5" PointX="20.25" PointY="45.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FAapproval" Width="1.5" PointX="20.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FAapprovedBy" Width="1.5" PointX="18" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FAdesignation" Width="1.5" PointX="15.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FAdetail" Width="1.5" PointX="18" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FAdocumentType" Width="1.5" PointX="18" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FAeducationDetail" Width="1.5" PointX="20.25" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FAexperianceDetail" Width="1.5" PointX="23.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FApaymentAgency" Width="1.5" PointX="21" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FarmerConsumption" Width="1.5" PointX="8.25" PointY="41.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FarmerConsumptionMapping" Width="1.5" PointX="10.5" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FarmerCropsMapping" Width="1.5" PointX="22.5" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FarmerDealerMapping" Width="1.5" PointX="7.5" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FarmerDetail" Width="1.5" PointX="5.25" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FarmerInputSourceMapping" Width="1.5" PointX="13.5" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FarmerLandMapping" Width="1.5" PointX="10.5" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FarmerLandType" Width="1.5" PointX="8.25" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FarmerPesticesMapping" Width="1.5" PointX="28" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FarmerPesticideType" Width="1.5" PointX="22.75" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FarmerTypeDetail" Width="1.5" PointX="3" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FAStatu" Width="1.5" PointX="15.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FAtargetDetail" Width="1.5" PointX="20.25" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FAtargetVillageMapping" Width="1.5" PointX="22.5" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FAuploadedDocumentDetail" Width="1.5" PointX="20.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.FertilizerInfo" Width="1.5" PointX="21" PointY="42.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.GroupInfo" Width="1.5" PointX="0.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.InputSource" Width="1.5" PointX="11.25" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.IrrigationSource" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.LandOwnershipType" Width="1.5" PointX="8.25" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.PesticesInfo" Width="1.5" PointX="25" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Pesticide" Width="1.5" PointX="25" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.PestiesUnit" Width="1.5" PointX="25.75" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.PocketCropMapping" Width="1.5" PointX="22.5" PointY="36.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.PocketFertilizerMapping" Width="1.5" PointX="23.25" PointY="46.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.PocketInfo" Width="1.5" PointX="18" PointY="45.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.PocketStatu" Width="1.5" PointX="15.75" PointY="46.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.PocketVillageMapping" Width="1.5" PointX="20.25" PointY="60.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.ProjectException" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.SaDetail" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.StateInfo" Width="1.5" PointX="6" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.SubDistrictInfo" Width="1.5" PointX="9" PointY="61" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.TODO" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.UserGroupInfo" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.UserInformation" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.UserType" Width="1.5" PointX="0.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.VillageInfo" Width="1.5" PointX="11.25" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.StateInformation" Width="1.5" PointX="30.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Structure" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DBModel.FK_CropResultInfo_CropInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerCropsMapping_CropInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAtargetVillageMappings_CropInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_PocketCropMapping_CropInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerDetail_DealerDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAtargetDetail_DealerDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DelerAddInfo_DelerInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DelerAddInfo_DistrictInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DelerAddInfo_DistrictInfo_DistrictID" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DelerAddInfo_DistrictInfo1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DelerAddInfo_StateInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DelerAddInfo_StateInfo1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DelerAddInfo_StateInfo2" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DelerBankInfo_DelerInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DelerInfo_DelerType" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DelerInfo_UserInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DelerInfo_UserInformation1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DelerLicencesInfo_DelerInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DelerPartenarInfo_DelerInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerDealerMapping_DelerInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerInputSourceMapping_DelerInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAaddressDetail_DistrictInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_PocketInfo_DistrictInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_StateID_District_StateInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_SubDistrictInto_DistrictInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_VillageInfo_DistrictInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAaddressDetail_FAdetail1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAaddressDetail_PocketInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAaddressDetail_StateInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAaddressDetail_SubDistrictInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAaddressDetail_VillageInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAapprovals_FAapprovedby" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAapprovals_FAdetail" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAdetail_FAdesignation" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAdetail_FAStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAeducationDetail_FAeducationDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAexperianceDetail_FAdetail" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAtargetDetail_FaDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAuploadedDocumentDetail_FAdetail" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAuploadedDocumentDetail_FaDocumentType" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAexperianceDetail_FAPaymentAgency" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerConsumptionMapping_FarmerConsumption" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerConsumptionMapping_FarmerDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerCropsMapping_FarmerDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerDealerMapping_FarmerDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerDetail_FarmerTypeDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerInputSourceMapping_FarmerDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerLandMapping_FarmerDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerPesticesMapping_FarmerDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerInputSourceMapping_InputSources" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerInputSourceMapping_VillageInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerLandMapping_FarmerLandType" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerLandMapping_LandOwnershipType" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerPesticesMapping_Pesticides" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FarmerPesticesMapping_PestiesUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_PesticesInfo_FarmerPesticideType" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Pesticides_FarmerPesticideType" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_FAtargetVillageMappings_FAtargetDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_PocketFertilizerMapping_Fertilizers" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_UserGroupInfo_GroupInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_PocketCropMapping_PocketInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_PocketFertilizerMapping_PocketInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_PocketInfo_PocketStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_PocketInfo_StateInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_PocketVillageMapping_PocketInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_PocketVillageMapping_SubDistrictInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_PocketVillageMapping_VillageInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_SubDistrictInto_StateInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_VillageInfo_StateInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_VillageInfo_SubDistrictInto" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_UserTypeID_UserGroupInfo_UserType" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_UserInformation_UserType" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

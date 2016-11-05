@@ -1,0 +1,48 @@
+﻿@model BusinessEntities.EntityClasses.FarmerInputSourceMappingEntities
+@using BusinessEntities.EntityClasses
+@using BusinessEntities.Enums
+@using Application.Common;
+@{
+
+    //List<SelectListItem> InputSourceList = CommonOperations.BindDropdwon<InputSourceEntities>(Model.InputSourceList, "Id", "InputSourceName");
+    List<SelectListItem> VillageInfoList = CommonOperations.BindDropdwon<VillageInfoEntities>(Model.VillageInfoList, "VillageID", "VILLAGE");
+
+    List<SelectListItem> InputSourceList = CommonOperations.GetInputSource();
+    bool IsDisableMode = ViewBag.isInDisableMode;
+}
+<tr class="rowSpacing"></tr>
+<tr class="trInputSourceMapping">
+    <td>
+        <table>
+            <tr>
+                <td class="hideForId">
+                    <input type="text" id="txtEduId" value="@Model.Id" />
+                </td>
+                <td class="tdWidth">
+                   Input Source <span class="text-danger">*</span> :
+                </td>
+                <td class="tdWidth">
+
+                    @Html.DropDownListFor(model => model.InputSourceId, InputSourceList, ConfigSettings.DefaultDropDownText, IsDisableMode == false ? new { @class = "form-control", @id = "ddlInputSource" } : (object)new { @class = "form-control", @id = "ddlInputSource", @disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.InputSourceId, "", new { @class = "text-danger" })
+                </td>
+                <td class="tdrowSpacing"></td>
+                <td class="tdWidth">
+                    Dealer Name <span class="text-danger">*</span> :
+                </td>
+                <td class="tdWidth">
+                    @Html.TextBoxFor(model => model.DealerId, IsDisableMode == false ? new { @class = "form-control" } : (object)new { @class = "form-control", @disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.DealerId, "", new { @class = "text-danger" })
+                </td>
+                <td class="tdrowSpacing"></td>
+                <td class="tdWidth">
+                    Village <span class="text-danger">*</span> :
+                </td>
+                <td class="tdWidth">
+                    @Html.DropDownListFor(model => model.VillageId, VillageInfoList, ConfigSettings.DefaultDropDownText, IsDisableMode == false ? new { @class = "form-control", @id = "ddlVillage" } : (object)new { @class = "form-control", @id = "ddlVillage", @disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.VillageId, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>

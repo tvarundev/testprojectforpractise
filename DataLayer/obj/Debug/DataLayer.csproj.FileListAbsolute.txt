@@ -1,0 +1,10 @@
+F:\Business\OceanAgro\OceanAgro\OceanAgro\DataLayer\bin\Debug\DataLayer.dll.config
+F:\Business\OceanAgro\OceanAgro\OceanAgro\DataLayer\bin\Debug\DataLayer.dll
+F:\Business\OceanAgro\OceanAgro\OceanAgro\DataLayer\bin\Debug\DataLayer.pdb
+F:\Business\OceanAgro\OceanAgro\OceanAgro\DataLayer\bin\Debug\EntityFramework.dll
+F:\Business\OceanAgro\OceanAgro\OceanAgro\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+F:\Business\OceanAgro\OceanAgro\OceanAgro\DataLayer\bin\Debug\EntityFramework.xml
+F:\Business\OceanAgro\OceanAgro\OceanAgro\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+F:\Business\OceanAgro\OceanAgro\OceanAgro\DataLayer\obj\Debug\DataLayer.dll
+F:\Business\OceanAgro\OceanAgro\OceanAgro\DataLayer\obj\Debug\DataLayer.pdb
+F:\Business\OceanAgro\OceanAgro\OceanAgro\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache

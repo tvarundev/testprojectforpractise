@@ -1,0 +1,148 @@
+﻿@using Application.Common
+@using System.Web.Mvc
+@model BusinessEntities.EntityClasses.FAexperianceDetailEntities
+@{
+    List<SelectListItem> MonthList = CommonOperations.GetDropdownValueForAllMonths();
+    List<SelectListItem> YearList = CommonOperations.GetDropdownValueForExperienceYears();
+    List<SelectListItem> PaymentAgencyList = ViewBag.paymentAgencyList;
+    List<SelectListItem> dealerList =ViewBag.dealerList;
+    bool IsDisableMode = ViewBag.isInDisableMode;
+}
+<h4><b>Experience Detail:</b></h4>
+<br />
+<table>
+    <tr>
+        <td class="hideForId">
+            <input type="text" id="txtExpId" value="@Model.Id" />
+        </td>
+        <td class="tdWidth">
+            From Month <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth">
+            @Html.DropDownListFor(model => model.FromMonth, MonthList, ConfigSettings.DefaultDropDownText, IsDisableMode == false ? new { @class = "form-control", @id = "ddlFromths" } : (object)new { @class = "form-control", @id = "ddlFromths", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.FromMonth, "", new { @class = "text-danger" })
+        </td>
+        <td class="tdrowSpacingLarge"></td>
+        <td class="tdWidth">
+            From Year <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth">
+            @Html.DropDownListFor(model => model.FromYear, YearList, ConfigSettings.DefaultDropDownText, IsDisableMode == false ? new { @class = "form-control", @id = "ddlFromYears" } : (object)new { @class = "form-control", @id = "ddlFromYears", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.FromYear, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr class="rowSpacing"></tr>
+    <tr>
+        <td class="tdWidth">
+            To Month <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth">
+            @Html.DropDownListFor(model => model.ToMonth, MonthList, ConfigSettings.DefaultDropDownText, IsDisableMode == false ? new { @class = "form-control", @id = "ddlTomths" } : (object)new { @class = "form-control", @id = "ddlTomths", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.FromMonth, "", new { @class = "text-danger" })
+        </td>
+        <td class="tdrowSpacingLarge"></td>
+        <td class="tdWidth">
+            To Year <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth">
+            @Html.DropDownListFor(model => model.ToYear, YearList, ConfigSettings.DefaultDropDownText, IsDisableMode == false ? new { @class = "form-control", @id = "ddlToYears" } : (object)new { @class = "form-control", @id = "ddlToYears", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.FromYear, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr class="rowSpacing"></tr>
+    <tr>
+        <td class="tdWidth">
+            Organization Name <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth">
+            @Html.TextBoxFor(model => model.OrganitionName, IsDisableMode == false ? new { @class = "form-control", @placeholder = "Organization" } : (object)new {@class = "form-control", @placeholder = "Organization", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.OrganitionName, "", new { @class = "text-danger" })
+        </td>
+        <td class="tdrowSpacingLarge"></td>
+        <td class="tdWidth">
+            Designation <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth">
+            @Html.TextBoxFor(model => model.Designation, IsDisableMode == false ? new { @class = "form-control", @placeholder = "Designation" } : (object)new { @class = "form-control", @placeholder = "Designation", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.Designation, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr class="rowSpacing"></tr>
+    <tr>
+        <td class="tdWidth">
+            Connected Dealer :
+        </td>
+        <td class="tdWidth">
+            @Html.DropDownListFor(model => model.RecomandDealerInfo, dealerList, ConfigSettings.DefaultDropDownText, IsDisableMode == false ? new { @class = "form-control", @id = "ddlRecomandedDealer" } : (object)new { @class = "form-control", @id = "ddlToYears", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.RecomandDealerInfo, "", new { @class = "text-danger" })
+        </td>
+        <td class="tdrowSpacing"></td>
+        <td class="tdWidth">
+            Payment Agency <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth">
+            @Html.DropDownListFor(model => model.PaymentAgencyId, PaymentAgencyList, ConfigSettings.DefaultDropDownText, IsDisableMode == false ? new { @class = "form-control", @id = "PaymentAgencyId" } : (object)new { @class = "form-control", @id = "PaymentAgencyId", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.PaymentAgencyId, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+      <tr class="rowSpacing"></tr>
+    <tr>
+        <td class="tdWidth">
+            Salary(per month) <span class="text-danger">*</span> :
+        </td>
+        <td class="tdWidth">
+            @Html.TextBoxFor(model => model.SalaryPerMonth, IsDisableMode == false ? new { @class = "form-control", @placeholder = "Salary Per Month", @type = "number" } : (object)new { @class = "form-control", @placeholder = "Salary Per Month", @type = "number", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.SalaryPerMonth, "", new { @class = "text-danger" })
+        </td>
+        <td class="tdrowSpacingLarge"></td>
+        <td class="tdWidth">
+            Salary(per day) :
+        </td>
+        <td class="tdWidth">
+            @Html.TextBoxFor(model => model.SalaryPerDay, IsDisableMode == false ? new { @class = "form-control", @placeholder = "Salary Per Day", @type = "number" } : (object)new { @class = "form-control", @placeholder = "Salary Per Day", @type = "number", @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.SalaryPerDay, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr class="rowSpacing"></tr>
+    <tr>
+        <td class="tdWidth">
+            DA :
+        </td>
+        <td class="tdWidth">
+            @Html.TextBoxFor(model => model.DA, IsDisableMode == false ? new { @class = "form-control", @placeholder = "DA", @type = "number" } : (object)new { @class = "form-control", @placeholder = "DA", @type = "number", @disabled = "disabled" })
+        </td>
+        <td class="tdrowSpacingLarge"></td>
+        <td class="tdWidth">
+            TA :
+        </td>
+        <td class="tdWidth">
+            @Html.TextBoxFor(model => model.TA, IsDisableMode == false ? new { @class = "form-control", @placeholder = "TA", @type = "number" } : (object)new { @class = "form-control", @placeholder = "TA", @type = "number", @disabled = "disabled" })
+        </td>
+    </tr>
+    <tr class="rowSpacing"></tr>
+    <tr>
+        <td class="tdWidth">
+            Travel :
+        </td>
+        <td class="tdWidth">
+            @Html.TextBoxFor(model => model.Travel, IsDisableMode == false ? new { @class = "form-control", @placeholder = "Travel", @type = "number" } : (object)new { @class = "form-control", @placeholder = "Travel", @type = "number", @disabled = "disabled" })
+        </td>
+        <td class="tdrowSpacingLarge"></td>
+        <td class="tdWidth">
+            Mobile :
+        </td>
+        <td class="tdWidth">
+            @Html.TextBoxFor(model => model.MobileAllowance, IsDisableMode == false ? new { @class = "form-control", @placeholder = "Mobile Allowance", @type = "number" } : (object)new { @class = "form-control", @placeholder = "Mobile Allowance", @type = "number", @disabled = "disabled" })
+        </td>
+    </tr>
+    <tr class="rowSpacing"></tr>
+    <tr>
+        <td class="tdWidth">
+            Place Worked :
+        </td>
+        <td class="tdWidth">
+            @Html.TextBoxFor(model => model.WorkArea, IsDisableMode == false ? new { @class = "form-control", @placeholder = "Work Area" } : (object)new { @class = "form-control", @placeholder = "Work Area", @disabled = "disabled" })
+        </td>
+    </tr>
+    
+</table>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BusinessEntities.EntityClasses.PocketInfoEntities>
+
+@{
+    ViewBag.Title = "PocketDetail";
+}
+
+<h2>PocketDetail</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreatePocket")
+</p>
+<table class="table">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.PocketName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StateName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DistrictName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pocketStatus.PocketStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PocketName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StateName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DistrictName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pocketStatus.PocketStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "SelectedPocket", new { id = item.PocketID }) |
+            @Html.ActionLink("Edit", "SelectedPocketForUpdate", new { id = item.PocketID }) 
+        </td>
+    </tr>
+}
+
+</table>

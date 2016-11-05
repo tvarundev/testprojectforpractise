@@ -1,0 +1,210 @@
+﻿@using BusinessEntities.EntityClasses
+@using BusinessEntities.Enums
+@model Application.Models.PocketModel
+@using Application.Common;
+@{
+    ViewBag.Title = "CreatePocket";
+    ViewBag.isInDisableMode = Model.isInDetailMode;
+}
+@Styles.Render("~/Content/ComonOAcss")
+<h2>Create Pocket</h2>
+<br />
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "pocketCreationForm" }))
+{
+    <table border="0" id="pocketDetailAddTbl">
+        <tr class="maintr">
+            <td class="mainTdWidth">
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Pocket Name <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.TextBoxFor(model => model.pocketInfo.PocketName, Model.isInDetailMode == false ? new { @class = "form-control", @placeholder = "Pocket Name", @id = "txtPocketName" } : (object)new { @class = "form-control", @placeholder = "Pocket Name", @id = "txtPocketName", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.pocketInfo.PocketName, "", new { @class = "text-danger" })
+                        </td>
+                        <td class="hideForId">
+                            @Html.TextBoxFor(model => model.pocketInfo.PocketID)
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            State <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.DropDownListFor(model => model.pocketInfo.StateID, CommonOperations.GetDropdownValueForStateList(Model.pocketInfo.states),Model.ActionType==ActionTypeEnum.Insert? ConfigSettings.DefaultDropDownLoadingText:ConfigSettings.DefaultDropDownText, Model.isInDetailMode == false ? new { @class = "form-control", @id = "ddlState" } : (object)new { @class = "form-control", @id = "ddlState", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.pocketInfo.StateID, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            District <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.DropDownListFor(model => model.pocketInfo.DistrictId, CommonOperations.BindDropdwon<DistrictInfoEntities>(Model.pocketInfo.districts, "DistID", "DistrictName"), ConfigSettings.DefaultDropDownText, Model.isInDetailMode == false ? new { @class = "form-control", @id = "ddlDistrict" } : (object)new { @class = "form-control", @id = "ddlDistrict", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.pocketInfo.DistrictId, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        @foreach (var villageMapping in Model.pocketInfo.PocketVillageMappingList)
+        {
+            @Html.Partial("~/Views/Pocket/_PocketVillageMapping.cshtml", villageMapping)
+        }
+        
+        <tr class="trInsertVillageMappingAfter"></tr>
+        <tr class="trBtnVillageMapping">
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <input type="button" id="btnAddVillage" value="Add Village" />
+                            <input type="button" id="btnRemoveVillage" value="Remove Village" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr id="rowSpacingBtwnBtn" class="rowSpacing"></tr>
+        @foreach (var cropsMapping in Model.pocketInfo.PocketCropMappingList)
+        {
+            @Html.Partial("~/Views/Pocket/_PocketCropsMapping.cshtml", cropsMapping)
+        }
+
+        <tr class="trInsertCropMappingAfter"></tr>
+        <tr class="trBtnCropsMapping">
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <input type="button" id="btnAddCrop" value="Add Crop" />
+                            <input type="button" id="btnRemoveCrop" value="Remove Crop" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        @foreach (var fertilizerMapping in Model.pocketInfo.PocketFertilizerMappingList)
+        {
+            @Html.Partial("~/Views/Pocket/_PocketFertilizerMapping.cshtml", fertilizerMapping)
+        }
+
+        <tr class="trInsertFertilizerMappingAfter"></tr>
+        <tr class="trBtnFertilizerMapping">
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <input type="button" id="btnAddFertilizer" value="Add Fertilizer" />
+                            <input type="button" id="btnRemoveFertilizer" value="Remove Fertilizer" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td class="tdWidth">
+                            Status <span class="text-danger">*</span> :
+                        </td>
+                        <td class="tdWidth">
+                            @Html.DropDownListFor(model => model.pocketInfo.PocketStatusId, CommonOperations.BindDropdwon<PocketStatusEntities>(Model.pocketInfo.pocketStatusList, "Id", "PocketStatus"), Model.ActionType == ActionTypeEnum.Insert ? ConfigSettings.DefaultDropDownLoadingText : ConfigSettings.DefaultDropDownText, Model.isInDetailMode == false ? new { @class = "form-control", @id = "ddlStatus" } : (object)new { @class = "form-control", @id = "ddlStatus", @disabled = "disabled" })
+                            @Html.ValidationMessageFor(model => model.pocketInfo.PocketStatusId, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="rowSpacing"></tr>
+        @if (Model.ActionType == ActionTypeEnum.Insert || Model.ActionType == ActionTypeEnum.Update)
+        {
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td class="tdWidth"></td>
+                            <td class="tdWidth"></td>
+                            <td class="tdrowSpacingLarge"></td>
+                            <td class="tdWidth">
+                                <input type="button" value="Save Pocket" id="btnSave" />
+                            </td>
+                            <td class="tdWidth">
+                                <input type="button" value="Cancel" id="btnCancelAdd" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        }
+        @if (Model.ActionType == ActionTypeEnum.Select)
+        {
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td class="tdWidth"></td>
+                            <td class="tdWidth"></td>
+                            <td class="tdrowSpacingLarge"></td>
+                            <td class="tdWidth">
+                                <input type="button" value="Back" id="btnBack" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        }
+    </table>
+}
+<div class="divSubDistrictVillageMapping">
+    <table id="tempVillageMappingTbl">
+        @Html.Partial("~/Views/Pocket/_PocketVillageMapping.cshtml", new PocketVillageMappingEntities())
+    </table>
+</div>
+<div class="divPocketCropsMapping">
+    <table id="tempCropMappingTbl">
+        @Html.Partial("~/Views/Pocket/_PocketCropsMapping.cshtml", new PocketCropMappingEntities())
+    </table>
+</div>
+<div class="divPocketFertilizerMapping">
+    <table id="tempFertilizerMappingTbl">
+        @Html.Partial("~/Views/Pocket/_PocketFertilizerMapping.cshtml", new PocketFertilizerMappingEntities())
+    </table>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/JqueryPackage")
+    @Scripts.Render("~/bundles/Validation")
+    @Scripts.Render("~/bundles/PocektDetail")
+}
+<script type="text/javascript">
+    var urlForGetDistricts = '@Url.Action("GetDistrictByStateId", "Pocket")';
+    var urlForGetSubDistricts = '@Url.Action("GetSubDistrictByDistrictId", "Pocket")';
+    var urlForGetVillages = '@Url.Action("GetVillageBySubDistrictId", "Pocket")';
+
+    var urlForPostingNewPocketData = '@Url.Action("InsertPocket", "Pocket")'
+    var urlForPostingUpdatedPocketData = '@Url.Action("UpdatePocket", "Pocket")'
+    var actionType = '@Convert.ToString(Model.ActionType)'
+    var urlForRedirectingDetailPage = '@Url.Action("PocketDetail", "Pocket")';
+    var urlForPageInitialValue = '@Url.Action("GetPocketInitialValues", "Pocket")';
+
+    var defaultDropdownText = '@ConfigSettings.DefaultDropDownText';
+</script>
